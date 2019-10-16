@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\aboub\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\aboub\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Mr Fantasy.-647272310.00" t="ExcludeRecursive" />
+    <e p="C:\Users\aboub\Documents\Progetti Unity\MrFantasy\Mr Fantasy" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="EmptyClass.cs" t="Include" />
+        <e p="Player" t="Include">
+          <e p="MrFantasyFinale" t="Include">
+            <e p="MrFantasy1.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Enemies" t="Include">
+            <e p="EnemiesGeneralBehaviour.cs" t="Include" />
+            <e p="Flauto" t="Include">
+              <e p="Flauto.cs" t="Include" />
+              <e p="Flauto1.cs" t="Include" />
+              <e p="ProiettileDx.cs" t="Include" />
+              <e p="ProiettileSx.cs" t="Include" />
+            </e>
+            <e p="FollowPath.cs" t="Include" />
+            <e p="MovementPath.cs" t="Include" />
+            <e p="Radar.cs" t="Include" />
+          </e>
+          <e p="MainScripts" t="Include">
+            <e p="Camera1Controller.cs" t="Include" />
+            <e p="LevelManager.cs" t="Include" />
+            <e p="MainCameraController.cs" t="Include" />
+            <e p="MenuPlayer.cs" t="Include" />
+            <e p="PlayScene.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="Gondola" t="Include">
+              <e p="Bullet" t="Include">
+                <e p="GondolaBulletBehaviour.cs" t="Include" />
+              </e>
+              <e p="GondolaMovement.cs" t="Include" />
+            </e>
+            <e p="MrFantasy1" t="Include">
+              <e p="MrFantasyGen.cs" t="Include" />
+              <e p="PlayerControlDisable.cs" t="Include" />
+              <e p="PlayerMovement.cs" t="Include" />
+              <e p="SparaController.cs" t="Include" />
+            </e>
+            <e p="MrFantasy2" t="Include">
+              <e p="PlayerMovementCreatura2.cs" t="Include" />
+              <e p="SparaControllerCreatura2.cs" t="Include" />
+            </e>
+            <e p="MrFantasyPesce" t="Include">
+              <e p="Bullet" t="Include">
+                <e p="Normal" t="Include">
+                  <e p="BulletBehaviour.cs" t="Include" />
+                </e>
+              </e>
+              <e p="MrFantasyPesceMovement.cs" t="Include" />
+              <e p="ProjectileMovement.cs" t="Include" />
+            </e>
+          </e>
+          <e p="World" t="Include">
+            <e p="Audio" t="Include">
+              <e p="Lv1" t="Include">
+                <e p="PiattaformaOnTouch.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Checkpoint Manager" t="Include">
+              <e p="Livello 1" t="Include">
+                <e p="GeneratoreMobile.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Lv1" t="Include">
+              <e p="Background" t="Include">
+                <e p="Creatures" t="Include">
+                  <e p="Molecule.cs" t="Include" />
+                  <e p="MoleculeController.cs" t="Include" />
+                  <e p="WhaleEntry.cs" t="Include" />
+                  <e p="WhaleGen.cs" t="Include" />
+                  <e p="WhaleMovementDx.cs" t="Include" />
+                  <e p="WhaleMovementSx.cs" t="Include" />
+                </e>
+                <e p="Platforms" t="Include">
+                  <e p="MoveOnPlatform.cs" t="Include" />
+                  <e p="PlatformFallComplex.cs" t="Include" />
+                  <e p="PlatformFallEasy.cs" t="Include" />
+                  <e p="PlatformFallGenerator.cs" t="Include" />
+                  <e p="PlatformMovement.cs" t="Include" />
+                  <e p="PlatformTurn.cs" t="Include" />
+                  <e p="PlatformTurnWTime.cs" t="Include" />
+                  <e p="PlatformVerticalMove.cs" t="Include" />
+                  <e p="PlatformWhaleActivator.cs" t="Include" />
+                </e>
+                <e p="Scene" t="Include">
+                  <e p="CloudGenerator.cs" t="Include" />
+                  <e p="CloudMovement.cs" t="Include" />
+                  <e p="TerrainController.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Miscellaneous" t="Include">
+                <e p="CameraMove.cs" t="Include" />
+                <e p="CameraMoveOnPlayer.cs" t="Include" />
+                <e p="DestroyPlayer.cs" t="Include" />
+                <e p="EndOfLevelController.cs" t="Include" />
+                <e p="PerformanceController.cs" t="Include" />
+                <e p="TrasformationPlace.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Object Pooler" t="Include">
+              <e p="MoleculePooler.cs" t="Include" />
+              <e p="ObjectPooler.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Mr Fantasy.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
