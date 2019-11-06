@@ -2,32 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/** Script to control the player beahviour and movements. **/
 public class MrFantasyPesceMovement : MonoBehaviour {
 
-	Rigidbody2D rb;
+    #region Objects
+
+    Rigidbody2D rb;
     Animator anim;
     public GameObject projectile;
     public Transform shootPoint;
     public Transform top;
     public Transform bottom;
+    public Transform transform1;
     public SpriteRenderer sprite;
+    
+    #endregion
+
+    #region Settings Parameters
+
+    private int projectile_num = 1;
+    public float speed; // player speed
+    public float cooldown; // time between 1st shoot and 2nd shoot
+    public float cooldownTimer;
+    public float rotation;
+    public float timer;
+
+    #endregion
+
+    #region Boolean Values
 
     public bool facingRight;
     public bool flipVertical = false;
 
-    int projectile_num = 1;
+    #endregion
 
-    public float speed; // player speed
-    public float cooldown; // time between 1st shoot and 2nd shoot
-    public float cooldownTimer;
-    public Transform transform1;
-    public float rotation;
-    public float timer;
+    #region Default Methods
 
-	void Start()
+    void Start()
     {
-		rb = this.GetComponent<Rigidbody2D> ();
-		anim = this.GetComponent<Animator> ();
+        rb = this.GetComponent<Rigidbody2D> ();
+        anim = this.GetComponent<Animator> ();
         transform1 = this.GetComponent<Transform>();
         sprite = this.GetComponent<SpriteRenderer>();
     }
@@ -66,6 +80,11 @@ public class MrFantasyPesceMovement : MonoBehaviour {
         }
     }
 
+    #endregion
+
+    #region Custom Methods
+
+    /** Rotate the player based on the axis values received. **/
     void Rotation(string axisH, string axisV)
     {
         anim.SetBool("Move", true);
@@ -119,6 +138,8 @@ public class MrFantasyPesceMovement : MonoBehaviour {
             rb.velocity = new Vector2(-speed*.8f, -speed*.8f);
         }
     }
+
+    #endregion
 }
 
 

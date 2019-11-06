@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 
+/** Script to control the scene swithcing at the end of the first level.
+ * Disables the player movements, takes control of camera and switches the scene.
+ */
 public class PlayerControlDisable : MonoBehaviour
 {
-    public Camera cameraController;
-    public Camera camera2Controller;
+    #region Objects
+
+    public Camera firstCameraController;
+    public Camera secondCameraController;
     public CameraMove cameraMove;
     public GameObject player;
-    public LevelManager levelManager;
-    public PlayerMovement playerMovement;
-    public Transform testObject;
-    public Transform playerPosition;
     public GameObject transformationAnim;
     public GameObject animTransformationPosition;
     public GameObject showScenePositionIncrease;
@@ -18,6 +19,15 @@ public class PlayerControlDisable : MonoBehaviour
     public GameObject background;
     public GameObject chamber;
     public GameObject mrFantasyPesce;
+    public LevelManager levelManager;
+    public PlayerMovement playerMovement;
+    public Transform testObject;
+    public Transform playerPosition;
+
+    #endregion
+
+    #region Settings Parameters
+
     public Vector2 reachVector;
     public float speed;
     public float timer;
@@ -30,11 +40,14 @@ public class PlayerControlDisable : MonoBehaviour
     public float destroyAnimTime;
     public int counter = 0;
     public int counter1 = 0;
-    float x1, y1, x2, y2, x3, y3;
-
     public float x, y, z;
-    public bool go;
+    private float x1, y1, x2, y2, x3, y3;
     public float cameraOriginalSize;
+
+    #endregion
+
+    #region Boolean Values
+
     public bool decreasing;
     public bool increasing;
     public bool stopped;
@@ -45,10 +58,15 @@ public class PlayerControlDisable : MonoBehaviour
     public bool switchCamera;
     public bool keepZooming;
     public bool velocitySetted;
+    public bool go;
+    
+    #endregion
+
+    #region Default Methods
 
     private void Start()
     {
-        cameraMove = cameraController.GetComponent<CameraMove>();
+        cameraMove = firstCameraController.GetComponent<CameraMove>();
         levelManager = new LevelManager();
     }
 
@@ -78,11 +96,9 @@ public class PlayerControlDisable : MonoBehaviour
             background.SetActive(false);
             if (timer > switchCameraTime && timer < destroyAnimTime)
             {
-                
-                Destroy(cameraController.gameObject);
-                camera2Controller.GetComponent<Camera>().enabled = true;
-                camera2Controller.GetComponent<AudioListener>().enabled = true;
-                              
+                Destroy(firstCameraController.gameObject);
+                secondCameraController.GetComponent<Camera>().enabled = true;
+                secondCameraController.GetComponent<AudioListener>().enabled = true;
             }       
             else if(timer > destroyAnimTime)
             {
@@ -94,9 +110,16 @@ public class PlayerControlDisable : MonoBehaviour
                 switchCamera = false;
             }
         }
-        
     }
 
+    #endregion
+
+    #region Custom Methods 
+
+    /**
+     * If the object entering the trigger is the player, take its coordinates
+     * and set correct boolean values to start related methods.
+     */
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag.Equals("Player"))
@@ -111,14 +134,17 @@ public class PlayerControlDisable : MonoBehaviour
                 y1 = playerMovement.transform.position.y;
                 x2 = this.transform.position.x;
                 y2 = this.transform.position.y;
-                x3 = cameraController.transform.position.x;
-                y3 = cameraController.transform.position.y;
+                x3 = firstCameraController.transform.position.x;
+                y3 = firstCameraController.transform.position.y;
                 focus = true;
                 startReachingPosition = true;               
             }
         }
     }
 
+    /**
+     * Focus the camera on the player and keep moving till the correct camera size.
+     */
     public void FocusOnPlayer()
     {
         if (timer > time4)
@@ -132,10 +158,10 @@ public class PlayerControlDisable : MonoBehaviour
         else
         {
             cameraMove.speed = 0;
-            cameraController.transform.position = Vector3.MoveTowards(cameraController.transform.position, transformationAnim.transform.position, 50 * Time.deltaTime);
+            firstCameraController.transform.position = Vector3.MoveTowards(firstCameraController.transform.position, transformationAnim.transform.position, 50 * Time.deltaTime);
             if (!keepZooming)
             {
-                cameraController.orthographicSize += -speed * zoomSpeed * Time.deltaTime;
+                firstCameraController.orthographicSize += -speed * zoomSpeed * Time.deltaTime;
             }
             if (timer > 1)
             {
@@ -153,42 +179,44 @@ public class PlayerControlDisable : MonoBehaviour
         }
     }
 
+    /**
+     * Show the second level initial scene. Zoom out till a certain point, then zoom in focusing on the player.
+     */
     public void ShowScene()
     {
-        
         if(counter1 == 0)
         {
             timer = 0;
             counter1++;
-            cameraOriginalSize = camera2Controller.orthographicSize;
+            cameraOriginalSize = secondCameraController.orthographicSize;
         }
 
         if (timer < time)
         {
-            camera2Controller.transform.position = Vector3.MoveTowards(camera2Controller.transform.position, showScenePositionIncrease.transform.position, 1.9f*speed * Time.deltaTime);
+            secondCameraController.transform.position = Vector3.MoveTowards(secondCameraController.transform.position, showScenePositionIncrease.transform.position, 1.9f*speed * Time.deltaTime);
             
-            camera2Controller.orthographicSize += speed * Time.deltaTime;
+            secondCameraController.orthographicSize += speed * Time.deltaTime;
             increasing = true;
         }
         else if (timer > time && timer < time2)
         {
             increasing = false;
-            camera2Controller.orthographicSize = camera2Controller.orthographicSize;
+            secondCameraController.orthographicSize = secondCameraController.orthographicSize;
         }
         else if(timer > time2 && timer < time3)
         {
-            camera2Controller.transform.position = Vector3.MoveTowards(camera2Controller.transform.position, showScenePositionDecrease.transform.position, 5.7f * speed * Time.deltaTime);
-            camera2Controller.orthographicSize += -3 * speed * Time.deltaTime;
+            secondCameraController.transform.position = Vector3.MoveTowards(secondCameraController.transform.position, showScenePositionDecrease.transform.position, 5.7f * speed * Time.deltaTime);
+            secondCameraController.orthographicSize += -3 * speed * Time.deltaTime;
             decreasing = true;
         }
         else if (timer > time3)
         {
-            camera2Controller.orthographicSize = cameraOriginalSize;
+            secondCameraController.orthographicSize = cameraOriginalSize;
             decreasing = false;
             stopped = true;
             StartCoroutine(levelManager.LoadAsync(3));
         }
     }
 
-    
+    #endregion
 }

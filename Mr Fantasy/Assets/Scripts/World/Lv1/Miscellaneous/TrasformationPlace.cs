@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+// TO BE REMOVED not USED
 public class TrasformationPlace : MonoBehaviour {
 
 	public GameObject Scene1;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/** Script to control the player's moevement and beahviour in Gondola form, in the Prologue scene **/
 public class GondolaMovement : MonoBehaviour
 {
     private ObjectPooler objectPooler;

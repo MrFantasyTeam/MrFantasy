@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/** Script to load scenes. **/
 public class LevelManager : MonoBehaviour
 {
     public IEnumerator LoadAsync(int levelNumber)

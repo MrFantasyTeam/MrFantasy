@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/** Script to manage the main camera behaviour. **/
 public class MainCameraController : MonoBehaviour {
 	public float time0 = 0;
 	public float Time1;

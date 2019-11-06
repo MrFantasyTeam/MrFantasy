@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/** Manage "Platform Fall" beaviour and movement. **/ 
 public class PlatformFall : MonoBehaviour
 {
+    #region Objects
 
     public GameObject col1;
     public GameObject col2;
     public AudioSource audio;
     Animator anim;
+
+    #endregion
+
+    #region Settings Parameters
 
     public float Time0 = 0;
     public float Time1;
@@ -17,9 +23,15 @@ public class PlatformFall : MonoBehaviour
     public float Time3;
     public float Time4;
 
+    #endregion
+
+    #region Boolean Values
+
     public bool audioactive = false;
 
+    #endregion
 
+    #region Default Methods
 
     // Use this for initialization
     void Start()
@@ -60,7 +72,11 @@ public class PlatformFall : MonoBehaviour
             Time0 = 0;
         }
     }
-    
+
+    #endregion
+
+    #region Custom Methods 
+
     //enable collider1
     void ActiveCol1()
     {
@@ -71,14 +87,11 @@ public class PlatformFall : MonoBehaviour
     void ActiveCol2()
     {
         col2.SetActive(true);
-        
     }
     //disable collider1 
     void Col1Disactive()
     {
-        
         col1.SetActive(false);
-        
     }
     //disable collider2
     void Col2Disactive()
@@ -97,4 +110,6 @@ public class PlatformFall : MonoBehaviour
         if (collider.gameObject.tag == "MainCamera")
             audioactive = false;
     }
+
+    #endregion
 }

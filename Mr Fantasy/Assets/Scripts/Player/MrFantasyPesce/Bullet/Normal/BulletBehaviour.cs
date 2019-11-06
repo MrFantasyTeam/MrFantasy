@@ -20,7 +20,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall") Destroy(this.gameObject);
         
-        // beahviour for enemies
+        // behaviour for enemies
 
         // behaviour for creatures 
     }

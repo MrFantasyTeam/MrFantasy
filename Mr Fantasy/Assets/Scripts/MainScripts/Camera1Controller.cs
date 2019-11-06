@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/** Manages the camera 1 beahviour. **/
 public class Camera1Controller : MonoBehaviour {
 
 	public float time0 = 0;

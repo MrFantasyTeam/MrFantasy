@@ -2,16 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/** Manage the Mobile Generator behaviour, this object instantiate the player
+ * on last checkpoint position when is dead. *
+ */
 public class GeneratoreMobile : MonoBehaviour {
+
+    #region Objects
 
     public GameObject player;
     public GameObject pointOfInstance;
     private Rigidbody2D rb;
-    
+
+    #endregion
+
+    #region Settings Parameters
+
     public float shootTime;
     public float activateTime;
     public float deactivateTime;
     private int counter;
+
+    #endregion
+    
     
 
 	// Use this for initialization

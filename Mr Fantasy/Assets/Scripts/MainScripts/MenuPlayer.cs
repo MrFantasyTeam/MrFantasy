@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-
+/** Script to manage the menu scene. **/
 public class MenuPlayer : MonoBehaviour
 {
     public LevelManager levelManager;

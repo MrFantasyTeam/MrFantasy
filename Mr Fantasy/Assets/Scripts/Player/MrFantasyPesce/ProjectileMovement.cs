@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/** Script to control the movement and behaviour of the projectile shot by Player in fish form. ***/
 public class ProjectileMovement : MonoBehaviour {
-   
+
+    #region Objects
+
     private Rigidbody2D rb;
     private Transform playerRot;
     private Transform[] children;
     private GameObject projectileStep1;
     private GameObject projectileStep2;
-    
+
+    #endregion
+
+    #region Setting Parameters
+
     public float speed;
     private float timer;
     public float projectileStep1Time;    
@@ -18,6 +25,10 @@ public class ProjectileMovement : MonoBehaviour {
     private float rotationY;
     private float rotationZ;
     private int bulletStep1 = 0;
+
+    #endregion
+
+    #region Default Methods
 
     // Use this for initialization
     void Start ()
@@ -54,6 +65,11 @@ public class ProjectileMovement : MonoBehaviour {
         if (timer >= destroyTime) Destroy(this.gameObject);        
     }
 
+    #endregion
+
+    #region Custom Methods
+
+    /** Position and move the projectile based on the player orientation. **/
     public void Shoot()
     {        
         // east
@@ -110,4 +126,7 @@ public class ProjectileMovement : MonoBehaviour {
         // detach from parent
         projectileStep1.transform.parent = null;
     }
+
+    #endregion
+    
 }

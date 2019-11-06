@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/** Scipt to control the movement and behaviour of a molecule. **/
 public class Molecule : MonoBehaviour
 {
     public float speed;
