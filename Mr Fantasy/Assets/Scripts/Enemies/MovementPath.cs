@@ -11,16 +11,15 @@ public class MovementPath : MonoBehaviour
     {
         linear, loop
     }
-    
 
     #endregion
 
     #region Public Variables
 
-    public PathTypes PathType; // indicates the type of path
+    public PathTypes pathType; // indicates the type of path
     public int movementDirection = 1; // 1 clockwise/forward || -1 counter clockwise/backwards
     public int movingTo = 0; // used to identify point in Path sequence which is moving towards
-    public Transform[] PathSequence; // array of all points in the path
+    public Transform[] pathSequence; // array of all points in the path
 
     #endregion
 
@@ -29,19 +28,19 @@ public class MovementPath : MonoBehaviour
     // draws the line the object is following
     public void OnDrawGizmos()
     {
-        if (PathSequence == null || PathSequence.Length < 2)
+        if (pathSequence == null || pathSequence.Length < 2)
         {
             return;
         }
 
-        for (int i = 0; i < PathSequence.Length; i++)
+        for (int i = 0; i < pathSequence.Length; i++)
         {
-            Gizmos.DrawLine(PathSequence[i].position, PathSequence[i+1].position);
+            Gizmos.DrawLine(pathSequence[i].position, pathSequence[i+1].position);
         }
 
-        if (PathType == PathTypes.loop)
+        if (pathType == PathTypes.loop)
         {
-            Gizmos.DrawLine(PathSequence[PathSequence.Length].position, PathSequence[0].position);
+            Gizmos.DrawLine(pathSequence[pathSequence.Length].position, pathSequence[0].position);
         }
     }
 
@@ -51,44 +50,44 @@ public class MovementPath : MonoBehaviour
 
     public IEnumerator<Transform> GetNextPathPoint()
     {
-        if (PathSequence == null || PathSequence.Length < 1) 
+        if (pathSequence == null || pathSequence.Length < 1) 
         {
             yield break;
         }
 
         while (true)
         {
-            yield return PathSequence[movingTo];
+            yield return pathSequence[movingTo];
             
-            if (PathSequence.Length == 1)
+            if (pathSequence.Length == 1)
             {
                 continue;
             }
 
-            if (PathType == PathTypes.linear)
+            if (pathType == PathTypes.linear)
             {
                 if (movingTo <= 0)
                 {
                     movementDirection = 1;
                 }
-                else if (movingTo >= PathSequence.Length - 1)
+                else if (movingTo >= pathSequence.Length - 1)
                 {
                     movementDirection = -1;
                 }
             } 
             movingTo += movementDirection;
 
-            if (PathType == PathTypes.loop) 
+            if (pathType == PathTypes.loop) 
             {
                 // 
-                if (movingTo >= PathSequence.Length)
+                if (movingTo >= pathSequence.Length)
                 {
                     movingTo = 0;
                 }
 
                 if (movingTo < 0)
                 {
-                    movingTo = PathSequence.Length;
+                    movingTo = pathSequence.Length;
                 }
             }
         }

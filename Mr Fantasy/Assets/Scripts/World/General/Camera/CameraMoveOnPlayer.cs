@@ -1,16 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/** Manage the movement and behaviour of the camera. This camera move following the player movements. **/
 public class CameraMoveOnPlayer : MonoBehaviour
 {
-    #region Objects
 
-    public GameObject player;     
-    private Vector3 offset;       
+    public GameObject player;       //Public variable to store a reference to the player game object
 
-    #endregion
-    
+
+    private Vector3 offset;         //Private variable to store the offset distance between the player and camera
+
     // Use this for initialization
     void Start()
     {
@@ -18,7 +16,8 @@ public class CameraMoveOnPlayer : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         offset = transform.position - player.transform.position;
     }
-    
+
+    // LateUpdate is called after Update each frame
     void LateUpdate()
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.

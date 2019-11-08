@@ -41,12 +41,12 @@ public class GondolaMovement : MonoBehaviour
         transform.Translate(horizontalMovement * Time.deltaTime * speed, verticalMovement * Time.deltaTime * speed, 0);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.tag.Equals("Enemy"))
         {
             float damage = collision.GetComponent<EnemiesGeneralBehaviour>().damage;
-            ChangeTransparency(-damage / 100);
+            ChangeTransparency(-damage / (10 * 10 * 100));
         }
     }
 

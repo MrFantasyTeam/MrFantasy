@@ -161,14 +161,27 @@ public class PlayerControlDisable : MonoBehaviour
             firstCameraController.transform.position = Vector3.MoveTowards(firstCameraController.transform.position, transformationAnim.transform.position, 50 * Time.deltaTime);
             if (!keepZooming)
             {
+<<<<<<< Updated upstream
                 firstCameraController.orthographicSize += -speed * zoomSpeed * Time.deltaTime;
+=======
+                cameraController.orthographicSize = Mathf.SmoothStep(cameraController.orthographicSize, 1, Time.deltaTime*zoomSpeed);
+                //Vector3.Slerp
+>>>>>>> Stashed changes
             }
             if (timer > 1)
             {
                 
             }
 
-            if (timer > 0.35)
+//            if (timer > 0.35)
+//            {
+//                keepZooming = true;             
+//                player.SetActive(false);
+//                transformationAnim.GetComponent<SpriteRenderer>().enabled = true;
+//                transformationAnim.GetComponent<Animator>().enabled = true;
+//                level.SetActive(false);
+//            }
+            if (cameraController.orthographicSize < 1.1f)
             {
                 keepZooming = true;             
                 player.SetActive(false);

@@ -16,16 +16,17 @@ public class FollowPath : MonoBehaviour
     
     #region Public Variables
 
-    public MovementType Type = MovementType.MoveTowards;
-    public MovementPath MyPath;
+    public EnemiesGeneralBehaviour enemyBehaviour;
+    public MovementType type = MovementType.MoveTowards;
+    public MovementPath myPath;
     public float speed = 1;
     public float maxDistanceToGoal = .1f; // how close does it have to be to the point to be considered at point
-    
+
     #endregion
 
     #region Private Variables
 
-    private IEnumerator<Transform> pointInPath; // used to reference point returned from MyPath.GetNextPathPoint
+    private IEnumerator<Transform> pointInPath; // used to reference point returned from myPath.GetNextPathPoint
 
     #endregion
     
@@ -33,13 +34,14 @@ public class FollowPath : MonoBehaviour
 
     public void Start()
     {
-        if (MyPath == null)
+        enemyBehaviour = GetComponent<EnemiesGeneralBehaviour>();
+        if (myPath == null)
         {
             Debug.LogError("Movement Path cannot be null, there must be a path to follow.", gameObject);
             return;
         }
 
-        pointInPath = MyPath.GetNextPathPoint();
+        pointInPath = myPath.GetNextPathPoint();
         pointInPath.MoveNext();
         if (pointInPath.Current == null)
         {
@@ -57,13 +59,13 @@ public class FollowPath : MonoBehaviour
             return;
         }
 
-        if (Type.Equals(MovementType.MoveTowards))
+        if (type.Equals(MovementType.MoveTowards))
         {
             transform.position = Vector3.MoveTowards(
                 transform.position, 
                 pointInPath.Current.position,
                 Time.deltaTime * speed);
-        } else if (Type.Equals(MovementType.LerpTowards))
+        } else if (type.Equals(MovementType.LerpTowards))
         {
             transform.position = Vector3.Lerp(
                 transform.position, 
@@ -76,6 +78,19 @@ public class FollowPath : MonoBehaviour
         {
             pointInPath.MoveNext();
         }
+        FlipOrientation();
+    }
+
+    private void FlipOrientation()
+    {
+        if (pointInPath.Current.position.x > transform.position.x)
+        {
+            if (enemyBehaviour.facingRight)
+                enemyBehaviour.Flip();
+        } 
+        else
+        if (!enemyBehaviour.facingRight)
+            enemyBehaviour.Flip();
     }
 
     #endregion

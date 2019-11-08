@@ -6,10 +6,16 @@ using UnityEngine;
 public class GondolaBulletBehaviour : MonoBehaviour
 {
     public GameObject player;
+    public Animator anim;
     public float speed;
     public float recharge;
 
     public bool catched;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -25,7 +31,6 @@ public class GondolaBulletBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Collided");
         if(collider.gameObject.tag.Equals("Enemy"))
         {
             if (!catched)
@@ -33,7 +38,7 @@ public class GondolaBulletBehaviour : MonoBehaviour
                 catched = true;
                 recharge = collider.GetComponent<EnemiesGeneralBehaviour>().damage;
                 player = GameObject.FindGameObjectWithTag("Player");
-                Destroy(collider.gameObject);
+                Destroy(collider.transform.parent.gameObject);
             }
         }
     }
@@ -48,7 +53,7 @@ public class GondolaBulletBehaviour : MonoBehaviour
 
     public void GoBackToPlayer()
     {
-        // It should now activate the sphere that goes back to the player
+        anim.SetBool("Catch", true);
         Debug.Log("GoBackToPlayer()");
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed/100);
         Debug.Log("Distance: " + Mathf.Abs(transform.position.x - player.transform.position.x));
@@ -56,6 +61,7 @@ public class GondolaBulletBehaviour : MonoBehaviour
         {
             player.GetComponent<GondolaMovement>().ChangeTransparency(recharge / 100);
             catched = false;
+            anim.SetBool("Catch", false);
             this.gameObject.SetActive(false);
         }
     }

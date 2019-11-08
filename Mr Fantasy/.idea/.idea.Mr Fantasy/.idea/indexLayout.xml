@@ -18,6 +18,7 @@
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>MrFantasytest_Data</Path>
+      <Path>Temp</Path>
       <Path>UnityPackageManager</Path>
       <Path>obj</Path>
     </explicitExcludes>
