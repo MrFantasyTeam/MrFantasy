@@ -33,14 +33,14 @@ public class MovementPath : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < pathSequence.Length; i++)
+        for (int i = 0; i < pathSequence.Length - 1; i++)
         {
             Gizmos.DrawLine(pathSequence[i].position, pathSequence[i+1].position);
         }
 
         if (pathType == PathTypes.loop)
         {
-            Gizmos.DrawLine(pathSequence[pathSequence.Length].position, pathSequence[0].position);
+            Gizmos.DrawLine(pathSequence[pathSequence.Length-1].position, pathSequence[0].position);
         }
     }
 
