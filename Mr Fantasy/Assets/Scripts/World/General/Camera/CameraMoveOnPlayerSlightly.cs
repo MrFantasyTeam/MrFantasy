@@ -1,30 +1,24 @@
 ﻿﻿using UnityEngine;
 using System.Collections;
-
-<<<<<<< Updated upstream:Mr Fantasy/Assets/Scripts/World/Lv1/Miscellaneous/CameraMoveOnPlayer.cs
+ 
 /** Manage the movement and behaviour of the camera. This camera move following the player movements. **/
-public class CameraMoveOnPlayer : MonoBehaviour
-=======
-public class CameraMoveOnPlayerSlightly : MonoBehaviour
->>>>>>> Stashed changes:Mr Fantasy/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs
-{
+ public class CameraMoveOnPlayerSlightly : MonoBehaviour
+ {
     #region Objects
 
-<<<<<<< Updated upstream:Mr Fantasy/Assets/Scripts/World/Lv1/Miscellaneous/CameraMoveOnPlayer.cs
-    public GameObject player;     
-    private Vector3 offset;       
+    public GameObject player;       //Public variable to store a reference to the player game object
+    private Vector3 offset;         //Private variable to store the offset distance between the player and camera      
 
     #endregion
-    
-=======
-    public GameObject player;       //Public variable to store a reference to the player game object
-    private Vector3 offset;         //Private variable to store the offset distance between the player and camera
+
+    #region Setting Parameters
 
     public float xDistance = 1;
     public float yDistance = 1;
     public float speed = 1;
 
->>>>>>> Stashed changes:Mr Fantasy/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs
+    #endregion
+    
     // Use this for initialization
     void Start()
     {

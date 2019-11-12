@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /** Script to control the player behaviour and movements. */
+// TODO This script is not working. To be fixed.
 public class MrFantasyPesceMovement : MonoBehaviour {
 
     #region Objects
@@ -21,10 +22,10 @@ public class MrFantasyPesceMovement : MonoBehaviour {
     #region Settings Parameters
 
     private int projectile_num = 1;
+    public int rotation;
     public float speed; // player speed
     public float cooldown; // time between 1st shoot and 2nd shoot
     public float cooldownTimer;
-    public float rotation;
     public float timer;
 
     #endregion
@@ -51,10 +52,10 @@ public class MrFantasyPesceMovement : MonoBehaviour {
     void FixedUpdate()
     {
         cooldownTimer += Time.deltaTime;
-        
+
         // storing player movement inputs
         float hMovement = Input.GetAxis("Horizontal");
-        float hVertical = Input.GetAxis("Vertical");
+        float vMovement = Input.GetAxis("Vertical");
 
         // setting rotation degrees
         if (hMovement != 0 && vMovement == 0)
@@ -80,102 +81,20 @@ public class MrFantasyPesceMovement : MonoBehaviour {
             flipY = true;
         else flipY = false;
         
+        if ((Input.GetKey(KeyCode.C) && cooldownTimer > cooldown))
+        {
+            cooldownTimer = 0;
+            anim.CrossFade("Attack", 0.1f);
+            var bullet = Instantiate(projectile, shootPoint.transform.position, new Quaternion(0, 0, 0, 0));
+        }
+        
         // rotating player
-        Rotate(flipX, flipY, )
+        Rotate(flipX, flipY, rotation, hMovement, vMovement);
     }
-
-//    void FixedUpdate()
-//    {
-//        cooldownTimer += Time.deltaTime;
-//
-//        if(Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") == 0)
-//            Rotation("null", "VerticalU");
-//        if (Input.GetAxis("Vertical") < 0 && Input.GetAxis("Horizontal") == 0)
-//            Rotation("null", "VerticalD");
-//        if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") > 0)
-//            Rotation("HorizontalR", "null");
-//        if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") < 0)
-//            Rotation("HorizontalL", "null");
-//        if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") > 0)
-//            Rotation("HorizontalR", "VerticalU");
-//        if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") < 0)
-//            Rotation("HorizontalL", "VerticalU");
-//        if (Input.GetAxis("Vertical") < 0 && Input.GetAxis("Horizontal") > 0)
-//            Rotation("HorizontalR", "VerticalD");
-//        if (Input.GetAxis("Vertical") < 0 && Input.GetAxis("Horizontal") < 0)
-//            Rotation("HorizontalL", "VerticalD");
-//        if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
-//        {
-//            anim.SetBool("Move", false);
-//            rb.velocity = new Vector2(0, 0);
-//        }
-//            
-//        if ((Input.GetKey(KeyCode.C) && cooldownTimer > cooldown))
-//        {
-//            cooldownTimer = 0;
-//            anim.CrossFade("Attack", 0.1f);
-//            var bullet = Instantiate(projectile, shootPoint.transform.position, new Quaternion(0, 0, 0, 0));
-//        }
-//    }
 
     #endregion
 
     #region Custom Methods
-
-    /** Rotate the player based on the axis values received. */
-//    void Rotation(string axisH, string axisV)
-//    {
-//        anim.SetBool("Move", true);
-//
-//        // east
-//        if (axisH.Equals("HorizontalR") && axisV.Equals("null"))
-//        {
-//            if (!Input.GetKey(KeyCode.LeftControl)) transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-//            rb.velocity = new Vector2(speed, 0);
-//        }
-//        // north east
-//        if (axisH.Equals("HorizontalR") && axisV.Equals("VerticalU"))
-//        {
-//            if (!Input.GetKey(KeyCode.LeftControl)) transform.rotation = Quaternion.Euler(new Vector3(0, 0, 45));                          
-//            rb.velocity = new Vector2(speed, speed);
-//        }
-//        // north
-//        if (axisH.Equals("null") && axisV.Equals("VerticalU"))
-//        {
-//            if (!Input.GetKey(KeyCode.LeftControl)) transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));            
-//            rb.velocity = new Vector2(0, speed);
-//        }
-//        // west 
-//        if (axisH.Equals("HorizontalL") && axisV.Equals("null"))
-//        {
-//            if (!Input.GetKey(KeyCode.LeftControl)) transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
-//            rb.velocity = new Vector2(-speed, 0);
-//        }
-//        // north west
-//        if (axisH.Equals("HorizontalL") && axisV.Equals("VerticalU"))
-//        {
-//            if (!Input.GetKey(KeyCode.LeftControl)) transform.rotation = Quaternion.Euler(new Vector3(0, 180, 45));
-//            rb.velocity = new Vector2(-speed*.8f, speed*.8f);
-//        }
-//        // south
-//        if (axisH.Equals("null") && axisV.Equals("VerticalD"))
-//        {
-//            if (!Input.GetKey(KeyCode.LeftControl)) transform.rotation = Quaternion.Euler(new Vector3(0, 180, 270));
-//            rb.velocity = new Vector2(0, -speed);
-//        }
-//        // south east
-//        if (axisH.Equals("HorizontalR") && axisV.Equals("VerticalD"))
-//        {
-//            if (!Input.GetKey(KeyCode.LeftControl)) transform.rotation = Quaternion.Euler(new Vector3(0, 0, 315));
-//            rb.velocity = new Vector2(speed*.8f, -speed*0.8f);
-//        }
-//        // south west
-//        if (axisH.Equals("HorizontalL") && axisV.Equals("VerticalD"))
-//        {
-//            if (!Input.GetKey(KeyCode.LeftControl)) transform.rotation = Quaternion.Euler(new Vector3(0, 180, -45));
-//            rb.velocity = new Vector2(-speed*.8f, -speed*.8f);
-//        }
-//    }
 
     void Rotate(bool flipX, bool flipY, int degrees, float hMovement, float vMovement)
     {

@@ -57,7 +57,7 @@ public class PlayerControlDisable : MonoBehaviour
     public bool focus;
     public bool switchCamera;
     public bool keepZooming;
-    public bool velocitySetted;
+    public bool velocitySet;
     public bool go;
     
     #endregion
@@ -67,7 +67,8 @@ public class PlayerControlDisable : MonoBehaviour
     private void Start()
     {
         cameraMove = firstCameraController.GetComponent<CameraMove>();
-        levelManager = new LevelManager();
+        // TODO check if this is actually working
+        levelManager = GetComponent<LevelManager>();
     }
 
     private void Update()
@@ -160,14 +161,7 @@ public class PlayerControlDisable : MonoBehaviour
             cameraMove.speed = 0;
             firstCameraController.transform.position = Vector3.MoveTowards(firstCameraController.transform.position, transformationAnim.transform.position, 50 * Time.deltaTime);
             if (!keepZooming)
-            {
-<<<<<<< Updated upstream
-                firstCameraController.orthographicSize += -speed * zoomSpeed * Time.deltaTime;
-=======
-                cameraController.orthographicSize = Mathf.SmoothStep(cameraController.orthographicSize, 1, Time.deltaTime*zoomSpeed);
-                //Vector3.Slerp
->>>>>>> Stashed changes
-            }
+                firstCameraController.orthographicSize = Mathf.SmoothStep(firstCameraController.orthographicSize, 1, Time.deltaTime*zoomSpeed);
             if (timer > 1)
             {
                 
@@ -181,7 +175,7 @@ public class PlayerControlDisable : MonoBehaviour
 //                transformationAnim.GetComponent<Animator>().enabled = true;
 //                level.SetActive(false);
 //            }
-            if (cameraController.orthographicSize < 1.1f)
+            if (firstCameraController.orthographicSize < 1.1f)
             {
                 keepZooming = true;             
                 player.SetActive(false);

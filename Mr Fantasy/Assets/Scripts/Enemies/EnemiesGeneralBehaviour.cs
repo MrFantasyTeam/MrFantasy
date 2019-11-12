@@ -14,7 +14,6 @@ public class EnemiesGeneralBehaviour : MonoBehaviour
     public bool spottedPlayer;
     public bool facingRight;
 
-
     private void Start()
     {
         myPath = GetComponent<FollowPath>();
