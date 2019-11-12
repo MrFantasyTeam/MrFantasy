@@ -1,25 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using World.General.HealthManager;
 
 /** Script to control the player's moevement and beahviour in Gondola form, in the Prologue scene **/
 public class GondolaMovement : MonoBehaviour
 {
+    #region Objects
+    
     private ObjectPooler objectPooler;
     public GameObject mainCamera;
-    SpriteRenderer sprite;
+    private SpriteRenderer sprite;
     public GameObject bullet;
     public Transform bulletPosition;
+
+    #endregion
+
+    #region Settings Parameters
 
     public float speed;
     public float health;
     public float shootTime;
 
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
         health = 100;
-        sprite = this.GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         objectPooler = ObjectPooler.SharedIntance;
     }
@@ -29,7 +36,6 @@ public class GondolaMovement : MonoBehaviour
     {
         shootTime += Time.deltaTime;
         Move();
-        //ChangeTransparency(-0.001f);
         if (health <= 0) Death();
         if (Input.GetKey(KeyCode.C)) Shoot();
     }
@@ -46,12 +52,20 @@ public class GondolaMovement : MonoBehaviour
         if(collision.gameObject.tag.Equals("Enemy"))
         {
             float damage = collision.GetComponent<EnemiesGeneralBehaviour>().damage;
-            ChangeTransparency(-damage / (10 * 10 * 100));
+            ChangeTransparency(-damage / (10 * 100));
+//            float timer = 0;
+//            timer += Time.deltaTime;
+//            if (timer > 1)
+//            {
+//                
+//                timer = 0;
+//            }
         }
     }
 
     public void ChangeTransparency(float variation)
     {
+        
         if (health + (variation * 100) > 100)
             health = 100;
         else 
@@ -59,6 +73,8 @@ public class GondolaMovement : MonoBehaviour
         Color color = sprite.color;
         color.a += variation;
         sprite.color = new Color(color.r, color.g, color.b, color.a);
+        // display the decrease / increase of health
+        gameObject.AddComponent<HealthVariationDisplayer>().ShowHealthVariation(variation * 100, transform);
     }
 
     public void Death()

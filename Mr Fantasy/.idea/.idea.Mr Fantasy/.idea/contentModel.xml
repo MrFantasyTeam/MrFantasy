@@ -76,6 +76,9 @@
                 <e p="CameraMoveOnPlayer.cs" t="Include" />
                 <e p="CameraMoveOnPlayerSlightly.cs" t="Include" />
               </e>
+              <e p="HealthManager" t="Include">
+                <e p="HealthVariationDisplayer.cs" t="Include" />
+              </e>
             </e>
             <e p="Lv1" t="Include">
               <e p="Background" t="Include">
