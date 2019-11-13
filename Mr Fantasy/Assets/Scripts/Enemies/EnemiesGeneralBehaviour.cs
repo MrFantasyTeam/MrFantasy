@@ -1,60 +1,93 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Timeline;
 
-public class EnemiesGeneralBehaviour : MonoBehaviour
+namespace Enemies
 {
-    public GameObject player;
-    public FollowPath myPath;
-    public float damage;
-    public float speed = 2;
-    public float direction;
-
-    public bool spottedPlayer;
-    public bool facingRight;
-
-    private void Start()
+    public class EnemiesGeneralBehaviour : MonoBehaviour
     {
-        myPath = GetComponent<FollowPath>();
-    }
+        #region Objects
 
-    private void FixedUpdate()
-    {
-        if (spottedPlayer)
-        {
-    //        Debug.Log("Spotted player", gameObject);
-            myPath.enabled = false;
-            MoveTowardsPlayer();
-        }
-        else
-        {
-//            Debug.Log("Unspotted player", gameObject);
-            myPath.enabled = true;
-        }
-    }
+        public GameObject player;
+        public FollowPath myPath;
 
-    private void MoveTowardsPlayer()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * 2 * Time.deltaTime);
-        if (transform.position.x > player.transform.position.x)
+        #endregion
+
+        #region Settings Parameters
+
+        public float damage;
+        public float speed = 2;
+        public float distance;
+
+        #endregion
+
+        #region Boolean Values
+
+        public bool spottedPlayer;
+        public bool facingRight;
+
+        #endregion
+
+        #region Default Methods
+
+        private void Start()
         {
-            if (!facingRight)
-                Flip();
+            myPath = GetComponent<FollowPath>();
         }
-        else
+
+        private void FixedUpdate()
         {
-            if (facingRight)
-                Flip();
+            if (spottedPlayer)
+            {
+                myPath.enabled = false;
+                MoveTowardsPlayer();
+            }
+            else
+            {
+                myPath.enabled = true;
+            }
         }
-    }
+
+        #endregion
+
+        #region Custom Methods
+
+        private void MoveTowardsPlayer()
+        {
+            if (Mathf.Abs(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude) < distance)
+            {
+                Attack();
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * 2 * Time.deltaTime);
+                if (transform.position.x > player.transform.position.x)
+                {
+                    if (!facingRight)
+                        Flip();
+                }
+                else
+                {
+                    if (facingRight)
+                        Flip();
+                }
+            }
+        }
+
+        public void Attack()
+        {
+            
+        }
     
-    public void Flip()
-    {
-        facingRight = !facingRight;
-        Transform transform1 = transform;
-        Vector3 theScale = transform1.localScale;
-        theScale.x *= -1;
-        transform1.localScale = theScale;
+        public void Flip()
+        {
+            facingRight = !facingRight;
+            Transform transform1 = transform;
+            Vector3 theScale = transform1.localScale;
+            theScale.x *= -1;
+            transform1.localScale = theScale;
+        }
+
+        #endregion
+    
     }
 }

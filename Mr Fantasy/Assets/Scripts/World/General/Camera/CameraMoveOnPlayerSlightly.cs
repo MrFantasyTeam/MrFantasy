@@ -7,7 +7,7 @@
      {
          #region Objects
 
-         public GameObject player;       //Public variable to store a reference to the player game object
+         private GameObject player;   
 
          #endregion
 
@@ -30,7 +30,7 @@
              Vector2 thisPosition = transform.position;
              Vector2 playerPosition = player.transform.position;
              thisPosition = new Vector2(Mathf.Lerp(thisPosition.x, playerPosition.x, interpolation),
-                 Mathf.Lerp(thisPosition.y, playerPosition.y, interpolation));
+                                        Mathf.Lerp(thisPosition.y, playerPosition.y, interpolation));
              transform.position = thisPosition;
          }
      }
