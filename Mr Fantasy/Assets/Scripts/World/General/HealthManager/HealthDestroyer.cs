@@ -1,27 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HealthDestroyer : MonoBehaviour
+namespace World.General.HealthManager
 {
-    public float destroyTime;
-    private float timer = 0;
-    
-    // Start is called before the first frame update
-    void Start()
+    /** Destroy the healthPopUp holding this script */
+    public class HealthDestroyer : MonoBehaviour
     {
-        
-    }
+        public float destroyTime;
 
-    // Update is called once per frame
-    void Update()
-    {
-        timer += Time.deltaTime;
-        if (timer >= destroyTime)
+        // Update is called once per frame
+        void Update()
         {
-            
-            Destroy(gameObject);
-            Debug.LogWarning("Destroyed Before");
+            Destroy(gameObject, destroyTime);
         }
     }
 }

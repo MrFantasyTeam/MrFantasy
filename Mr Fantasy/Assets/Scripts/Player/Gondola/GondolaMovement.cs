@@ -2,15 +2,13 @@
 using UnityEngine;
 using World.General.HealthManager;
 
-/** Script to control the player's moevement and beahviour in Gondola form, in the Prologue scene **/
+/** Script to control the player's movement and behaviour in Gondola form, in the Prologue scene **/
 public class GondolaMovement : MonoBehaviour
 {
     #region Objects
     
-    private ObjectPooler objectPooler;
     public GameObject mainCamera;
     private SpriteRenderer sprite;
-    public GameObject bullet;
     public Transform bulletPosition;
 
     #endregion
@@ -20,7 +18,7 @@ public class GondolaMovement : MonoBehaviour
     public float speed;
     public float health;
     public float shootTime;
-    public float num = 0;
+    public float num;
 
     #endregion
 
@@ -30,7 +28,6 @@ public class GondolaMovement : MonoBehaviour
         health = 100;
         sprite = GetComponent<SpriteRenderer>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        objectPooler = ObjectPooler.SharedIntance;
     }
 
     // Update is called once per frame
@@ -42,7 +39,7 @@ public class GondolaMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.C)) Shoot();
     }
 
-    public void Move()
+    private void Move()
     {
         float horizontalMovement = Input.GetAxis("Horizontal");
         float verticalMovement = Input.GetAxis("Vertical");
@@ -51,23 +48,11 @@ public class GondolaMovement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag.Equals("Enemy"))
-        {
-            if (num == 0)
-            {
-                num++;
-                float damage = collision.GetComponent<EnemiesGeneralBehaviour>().damage;
-                ChangeTransparency(-damage / (10 * 100));
-            }
-            
-//            float timer = 0;
-//            timer += Time.deltaTime;
-//            if (timer > 1)
-//            {
-//                
-//                timer = 0;
-//            }
-        }
+        if (!collision.gameObject.tag.Equals("Enemy")) return;
+        if (num != 0) return;
+        num++;
+        float damage = collision.GetComponent<EnemiesGeneralBehaviour>().damage;
+        ChangeTransparency(-damage / (10 * 100));
     }
     
     IEnumerator Wait()
@@ -78,30 +63,28 @@ public class GondolaMovement : MonoBehaviour
 
     public void ChangeTransparency(float variation)
     {
-        if (health + (variation * 100) > 100)
+        if (health + (variation) > 100)
             health = 100;
         else 
-            health += variation * 100;
+            health += variation;
         Color color = sprite.color;
         color.a += variation;
         sprite.color = new Color(color.r, color.g, color.b, color.a);
-        // display the decrease / increase of health
-        gameObject.AddComponent<HealthVariationDisplayer>().ShowHealthVariation(variation * 100, transform);
+        // display the increase / decrease of health
+        gameObject.AddComponent<HealthVariationDisplayer>().ShowHealthVariation(variation, transform);
         StartCoroutine(Wait());
     }
 
-    public void Death()
+    private void Death()
     {
-        // do something to show that the player is dead
+        // TODO do something to show that the player is dead
         StartCoroutine(mainCamera.GetComponent<LevelManager>().LoadAsync(1));
     }
 
-    public void Shoot()
+    private void Shoot()
     {
-        if(shootTime > 1)
-        {
-            ObjectPooler.SharedIntance.SpawnFromPool("bullet", bulletPosition.position, Quaternion.identity);
-            shootTime = 0;
-        }            
+        if (shootTime < 1) return;
+        ObjectPooler.SharedIntance.SpawnFromPool("bullet", bulletPosition.position, Quaternion.identity);
+        shootTime = 0;
     }
 }
