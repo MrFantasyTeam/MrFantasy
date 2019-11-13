@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
-using World.General.HealthManager;
+﻿using UnityEngine;
 
 public class GondolaBulletBehaviour : MonoBehaviour
 {
@@ -58,22 +56,9 @@ public class GondolaBulletBehaviour : MonoBehaviour
         if(Mathf.Abs(transform.position.x-player.transform.position.x) < 0.05f)
         {
             player.GetComponent<GondolaMovement>().ChangeTransparency(recharge / 100);
-//            if (num == 0)
-//            {
-//                num++;
-//                gameObject.AddComponent<HealthVariationDisplayer>().ShowHealthVariation(recharge / 100, transform);
-//                StartCoroutine(Wait());
-//            }
             catched = false;
             anim.SetBool("Catch", false);
             gameObject.SetActive(false);
         }
     }
-    
-//    IEnumerator Wait()
-//    {
-//        yield return new WaitForSeconds(.3f);
-//        num = 0;
-//        catched = false;
-//    }
 }

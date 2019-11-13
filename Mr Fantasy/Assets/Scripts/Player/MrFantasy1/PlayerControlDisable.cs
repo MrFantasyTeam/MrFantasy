@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using World.General.Camera;
 
 /** Script to control the scene swithcing at the end of the first level.
  * Disables the player movements, takes control of camera and switches the scene.

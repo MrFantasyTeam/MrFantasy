@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Radar : MonoBehaviour
 {
@@ -15,7 +12,6 @@ public class Radar : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Spotted player");
             parent.spottedPlayer = true;
             parent.player = other.gameObject;
         }
@@ -25,7 +21,6 @@ public class Radar : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("UnSpotted player");
             parent.spottedPlayer = false;
             parent.player = null;
         }

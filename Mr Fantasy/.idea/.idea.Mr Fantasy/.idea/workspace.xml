@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af90fe4f-6128-4e45-9ead-8e9851c3692c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Prologue.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EmptyClass.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EmptyClass.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Scenario/Livello 1/molecole/molecola/Molecola 1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Scenario/Nuova cartella.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Bat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthDestroyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthDestroyer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Lv2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Temp.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/movimenti/Composizione 1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,9 +50,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/MoleculePooler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Creatures/MoleculeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/ObjectPooler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/FollowPath.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasyPesce/MrFantasyPesceMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerControlDisable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MovementPath.cs" />
@@ -78,8 +60,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthDestroyer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" />
       </list>
     </option>
   </component>
