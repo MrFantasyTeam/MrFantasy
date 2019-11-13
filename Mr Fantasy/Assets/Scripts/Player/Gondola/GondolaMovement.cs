@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using World.General.HealthManager;
 
 /** Script to control the player's moevement and beahviour in Gondola form, in the Prologue scene **/
@@ -19,6 +20,7 @@ public class GondolaMovement : MonoBehaviour
     public float speed;
     public float health;
     public float shootTime;
+    public float num = 0;
 
     #endregion
 
@@ -51,8 +53,13 @@ public class GondolaMovement : MonoBehaviour
     {
         if(collision.gameObject.tag.Equals("Enemy"))
         {
-            float damage = collision.GetComponent<EnemiesGeneralBehaviour>().damage;
-            ChangeTransparency(-damage / (10 * 100));
+            if (num == 0)
+            {
+                num++;
+                float damage = collision.GetComponent<EnemiesGeneralBehaviour>().damage;
+                ChangeTransparency(-damage / (10 * 100));
+            }
+            
 //            float timer = 0;
 //            timer += Time.deltaTime;
 //            if (timer > 1)
@@ -62,10 +69,15 @@ public class GondolaMovement : MonoBehaviour
 //            }
         }
     }
+    
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
+        num = 0;
+    }
 
     public void ChangeTransparency(float variation)
     {
-        
         if (health + (variation * 100) > 100)
             health = 100;
         else 
@@ -75,6 +87,7 @@ public class GondolaMovement : MonoBehaviour
         sprite.color = new Color(color.r, color.g, color.b, color.a);
         // display the decrease / increase of health
         gameObject.AddComponent<HealthVariationDisplayer>().ShowHealthVariation(variation * 100, transform);
+        StartCoroutine(Wait());
     }
 
     public void Death()

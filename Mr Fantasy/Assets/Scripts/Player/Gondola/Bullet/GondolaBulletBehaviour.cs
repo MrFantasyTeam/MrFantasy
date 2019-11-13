@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using World.General.HealthManager;
 
 public class GondolaBulletBehaviour : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GondolaBulletBehaviour : MonoBehaviour
     public Animator anim;
     public float speed;
     public float recharge;
+    public int num = 0;
 
     public bool catched;
 
@@ -54,15 +56,28 @@ public class GondolaBulletBehaviour : MonoBehaviour
     public void GoBackToPlayer()
     {
         anim.SetBool("Catch", true);
-        Debug.Log("GoBackToPlayer()");
+//        Debug.Log("GoBackToPlayer()");
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed/100);
-        Debug.Log("Distance: " + Mathf.Abs(transform.position.x - player.transform.position.x));
+    //    Debug.Log("Distance: " + Mathf.Abs(transform.position.x - player.transform.position.x));
         if(Mathf.Abs(transform.position.x-player.transform.position.x) < 0.05f)
         {
             player.GetComponent<GondolaMovement>().ChangeTransparency(recharge / 100);
-            catched = false;
+            if (num == 0)
+            {
+                num++;
+                gameObject.AddComponent<HealthVariationDisplayer>().ShowHealthVariation(recharge / 100, transform);
+                StartCoroutine(Wait());
+            }
+            
             anim.SetBool("Catch", false);
             this.gameObject.SetActive(false);
         }
+    }
+    
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(.3f);
+        num = 0;
+        catched = false;
     }
 }

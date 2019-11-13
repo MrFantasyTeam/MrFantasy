@@ -23,13 +23,13 @@ public class EnemiesGeneralBehaviour : MonoBehaviour
     {
         if (spottedPlayer)
         {
-            Debug.Log("Spotted player", gameObject);
+    //        Debug.Log("Spotted player", gameObject);
             myPath.enabled = false;
             MoveTowardsPlayer();
         }
         else
         {
-            Debug.Log("Unspotted player", gameObject);
+//            Debug.Log("Unspotted player", gameObject);
             myPath.enabled = true;
         }
     }

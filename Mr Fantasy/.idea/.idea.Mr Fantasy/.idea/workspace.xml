@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="af90fe4f-6128-4e45-9ead-8e9851c3692c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/MovementPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/MovementPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scene/Prologue.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/Prologue.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,27 +22,33 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/FollowPath.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Creatures/MoleculeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/MovementPath.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8D2DEAE-EB3A-4471-B3E2-24C2A136823A/0f/888ec293/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/SparaController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerControlDisable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/MrFantasyGen.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/MoleculePooler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainScripts/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8D2DEAE-EB3A-4471-B3E2-24C2A136823A/d2/7b2613ba/WaitUntil.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8D2DEAE-EB3A-4471-B3E2-24C2A136823A/cd/7e097b9f/WaitForSeconds.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasyPesce/MrFantasyPesceMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/DestroyPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/EndOfLevelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DCDAA33-2E70-4ABE-85AB-94D0F06C4102/82/9dc8179d/TMP_InputField.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthDestroyer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/FollowPath.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/MovementPath.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/MoleculePooler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainScripts/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8D2DEAE-EB3A-4471-B3E2-24C2A136823A/cc/994e45d4/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -49,16 +58,17 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Creatures/MoleculeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/ObjectPooler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/FollowPath.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasyPesce/MrFantasyPesceMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerControlDisable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MovementPath.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthDestroyer.cs" />
       </list>
     </option>
   </component>
@@ -130,7 +140,7 @@
       <workItem from="1573581433798" duration="335000" />
       <workItem from="1573582303484" duration="799000" />
       <workItem from="1573583124720" duration="100000" />
-      <workItem from="1573583249323" duration="544000" />
+      <workItem from="1573583249323" duration="17143000" />
     </task>
     <servers />
   </component>
