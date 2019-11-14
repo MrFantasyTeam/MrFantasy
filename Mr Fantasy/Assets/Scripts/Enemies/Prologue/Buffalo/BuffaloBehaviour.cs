@@ -13,7 +13,7 @@ namespace Enemies.Prologue.Buffalo
         private void Attack()
         {
             speed *= 2;
-            transform.position = Vector2.MoveTowards(transform.position.x, )
+            //transform.position = Vector2.MoveTowards(transform.position.x, )
         }
     }
 }

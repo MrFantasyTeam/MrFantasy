@@ -22,6 +22,11 @@
             </e>
             <e p="FollowPath.cs" t="Include" />
             <e p="MovementPath.cs" t="Include" />
+            <e p="Prologue" t="Include">
+              <e p="Buffalo" t="Include">
+                <e p="BuffaloBehaviour.cs" t="Include" />
+              </e>
+            </e>
             <e p="Radar.cs" t="Include" />
           </e>
           <e p="MainScripts" t="Include">
