@@ -11,6 +11,7 @@ public class GondolaMovement : MonoBehaviour
     public GameObject mainCamera;
     private SpriteRenderer sprite;
     public Transform bulletPosition;
+    private Animator anim;
 
     #endregion
 
@@ -20,6 +21,10 @@ public class GondolaMovement : MonoBehaviour
     public float health;
     public float shootTime;
     public float num;
+    public float maxHeight = 5;
+    public float minHeight = -5;
+    private const  string MovingAnimBool = "Move";
+    private static readonly int Moving = Animator.StringToHash(MovingAnimBool);
 
     #endregion
 
@@ -29,6 +34,7 @@ public class GondolaMovement : MonoBehaviour
         health = 100;
         sprite = GetComponent<SpriteRenderer>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +42,7 @@ public class GondolaMovement : MonoBehaviour
     {
         shootTime += Time.deltaTime;
         Move();
+        ClampPosition();
         if (health <= 0) Death();
         if (Input.GetKey(KeyCode.C)) Shoot();
     }
@@ -45,6 +52,15 @@ public class GondolaMovement : MonoBehaviour
         float horizontalMovement = Input.GetAxis("Horizontal");
         float verticalMovement = Input.GetAxis("Vertical");
         transform.Translate(horizontalMovement * Time.deltaTime * speed, verticalMovement * Time.deltaTime * speed, 0);
+        if (horizontalMovement == 0 && verticalMovement == 0) anim.SetBool(Moving, false);
+        else anim.SetBool(Moving, true);
+    }
+
+    private void ClampPosition()
+    {
+        Vector2 clampedPosition = transform.position;
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, minHeight, maxHeight);
+        transform.position = clampedPosition;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
