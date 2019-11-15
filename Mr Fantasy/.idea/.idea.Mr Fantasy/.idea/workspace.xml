@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="af90fe4f-6128-4e45-9ead-8e9851c3692c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,13 +61,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Prologue/Buffalo/BuffaloBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" />
       </list>
     </option>
   </component>
@@ -138,7 +140,8 @@
       <workItem from="1573582303484" duration="799000" />
       <workItem from="1573583124720" duration="100000" />
       <workItem from="1573583249323" duration="17143000" />
-      <workItem from="1573740741684" duration="6203000" />
+      <workItem from="1573740741684" duration="6426000" />
+      <workItem from="1573815703303" duration="2883000" />
     </task>
     <servers />
   </component>

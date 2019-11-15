@@ -1,65 +1,107 @@
-﻿using Enemies;
+﻿using System;
+using System.Collections;
+using Enemies;
 using UnityEngine;
 
-public class GondolaBulletBehaviour : MonoBehaviour
+namespace Player.Gondola.Bullet
 {
-    public GameObject player;
-    public Animator anim;
-    public float speed;
-    public float recharge;
-    public int num = 0;
-
-    public bool catched;
-
-    private void Start()
+    public class GondolaBulletBehaviour : MonoBehaviour
     {
-        anim = GetComponent<Animator>();
-    }
+        #region Objects
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (!catched) Moving();
-        else GoBackToPlayer();
-    }
+        public GondolaMovement player;
+        private Animator anim;
 
-    public void Moving()
-    {
-        transform.Translate(speed * Time.deltaTime, 0, 0);
-    }
+        #endregion
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.tag.Equals("Enemy"))
+        #region Setting Properties
+
+        public float speed;
+        private float recharge;
+        private static readonly int Catch = Animator.StringToHash("Catch");
+        private static readonly int GoBack = Animator.StringToHash("GoBack");
+        private static readonly int Default = Animator.StringToHash("Default");
+        private const float CatchAnimDuration = .3f;
+
+        #endregion
+
+        #region Boolean Values
+
+        public bool caught; // the enemy has been caught
+        public bool hit; // the enemy has been hit
+        
+        #endregion
+
+        #region Default Methods
+
+        private void Awake()
         {
-            if (!catched)
+            anim = GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+            caught = false;
+            hit = false;
+        }
+        
+        private void FixedUpdate()
+        {
+            if (!hit) Moving();
+            else
             {
-                catched = true;
-                recharge = other.GetComponent<EnemiesGeneralBehaviour>().damage;
-                player = GameObject.FindGameObjectWithTag("Player");
-                Destroy(other.transform.parent.gameObject);
+                if (!caught) CatchEnemy();
+                GoBackToPlayer();
             }
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.gameObject.tag.Equals("MainCamera"))
+        #endregion
+
+        #region Custom Methods
+
+        private void Moving()
         {
+            transform.Translate(speed * Time.deltaTime, 0, 0);
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.gameObject.tag.Equals("Enemy")) return;
+            if (hit) return;
+            hit = true;
+            recharge = other.GetComponent<EnemiesGeneralBehaviour>().damage;
+            Destroy(other.transform.parent.gameObject);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if(other.gameObject.tag.Equals("MainCamera"))
+                gameObject.SetActive(false);
+        }
+
+        private void CatchEnemy()
+        {
+            anim.SetTrigger(Catch);
+            StartCoroutine(WaitForAnimEnd(GoBack, CatchAnimDuration));
+            caught = true;
+        }
+
+        private void GoBackToPlayer()
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed/100);
+            if (!(Mathf.Abs(transform.position.x - player.transform.position.x) < 0.05f)) return;
+            player.ChangeTransparency(recharge / 100);
+            anim.SetTrigger(Default);
             gameObject.SetActive(false);
         }
-    }
-
-    public void GoBackToPlayer()
-    {
-        anim.SetBool("Catch", true);
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed/100);
-        if(Mathf.Abs(transform.position.x-player.transform.position.x) < 0.05f)
+        
+        private IEnumerator WaitForAnimEnd(int animName, float waitTime)
         {
-            player.GetComponent<GondolaMovement>().ChangeTransparency(recharge / 100);
-            catched = false;
-            anim.SetBool("Catch", false);
-            gameObject.SetActive(false);
+            yield return new WaitForSeconds(waitTime);
+            anim.SetTrigger(animName);
         }
+
+        #endregion
+        
     }
 }

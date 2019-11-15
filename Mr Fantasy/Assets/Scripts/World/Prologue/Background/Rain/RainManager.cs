@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Player.Gondola;
 using UnityEngine;
 
 namespace World.Prologue.Background.Rain
