@@ -1,19 +1,25 @@
-﻿using UnityEngine;
-
-namespace Enemies.Prologue.Buffalo
+﻿namespace Enemies.Prologue.Buffalo
 {
     public class BuffaloBehaviour : EnemiesGeneralBehaviour
     {
         private float distanceToPlayer;
-        private void Start()
+
+        prote void FixedUpdate()
         {
-            speed = 4;
+            if (spottedPlayer)
+            {
+                myPath.enabled = false;
+                MoveTowardsPlayer();
+            }
+            else
+            {
+                myPath.enabled = true;
+            }
         }
 
-        private void Attack()
+        protected override void Attack()
         {
-            speed *= 2;
-            //transform.position = Vector2.MoveTowards(transform.position.x, )
+            
         }
     }
 }

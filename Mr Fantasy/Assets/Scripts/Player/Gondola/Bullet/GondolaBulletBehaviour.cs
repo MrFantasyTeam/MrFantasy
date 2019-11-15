@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Enemies;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ namespace Player.Gondola.Bullet
     {
         #region Objects
 
-        public GondolaMovement player;
+        private GondolaMovement player;
         private Animator anim;
 
         #endregion
@@ -21,7 +20,7 @@ namespace Player.Gondola.Bullet
         private static readonly int Catch = Animator.StringToHash("Catch");
         private static readonly int GoBack = Animator.StringToHash("GoBack");
         private static readonly int Default = Animator.StringToHash("Default");
-        private const float CatchAnimDuration = .3f;
+        private const float CatchAnimDuration = .5f;
 
         #endregion
 
@@ -29,6 +28,7 @@ namespace Player.Gondola.Bullet
 
         public bool caught; // the enemy has been caught
         public bool hit; // the enemy has been hit
+        public bool catchAnimTriggered; // the catch anim has started
         
         #endregion
 
@@ -37,12 +37,14 @@ namespace Player.Gondola.Bullet
         private void Awake()
         {
             anim = GetComponent<Animator>();
+            player = GameObject.FindWithTag("Player").GetComponent<GondolaMovement>();
         }
 
         private void Start()
         {
             caught = false;
             hit = false;
+            catchAnimTriggered = false;
         }
         
         private void FixedUpdate()
@@ -50,8 +52,8 @@ namespace Player.Gondola.Bullet
             if (!hit) Moving();
             else
             {
-                if (!caught) CatchEnemy();
-                GoBackToPlayer();
+                if (!caught && !catchAnimTriggered) CatchEnemy();
+                else if(caught) GoBackToPlayer();
             }
         }
 
@@ -81,14 +83,14 @@ namespace Player.Gondola.Bullet
 
         private void CatchEnemy()
         {
+            catchAnimTriggered = true;
             anim.SetTrigger(Catch);
             StartCoroutine(WaitForAnimEnd(GoBack, CatchAnimDuration));
-            caught = true;
         }
 
         private void GoBackToPlayer()
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed/100);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed / 100);
             if (!(Mathf.Abs(transform.position.x - player.transform.position.x) < 0.05f)) return;
             player.ChangeTransparency(recharge / 100);
             anim.SetTrigger(Default);
@@ -99,6 +101,7 @@ namespace Player.Gondola.Bullet
         {
             yield return new WaitForSeconds(waitTime);
             anim.SetTrigger(animName);
+            caught = true;
         }
 
         #endregion

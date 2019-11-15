@@ -28,12 +28,12 @@ namespace Enemies
 
         #region Default Methods
 
-        private void Start()
+        protected void Start()
         {
             myPath = GetComponent<FollowPath>();
         }
 
-        private void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             if (spottedPlayer)
             {
@@ -50,7 +50,7 @@ namespace Enemies
 
         #region Custom Methods
 
-        private void MoveTowardsPlayer()
+        protected void MoveTowardsPlayer()
         {
             if (Mathf.Abs(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude) < distance)
             {
@@ -72,12 +72,12 @@ namespace Enemies
             }
         }
 
-        public void Attack()
+        protected virtual void Attack()
         {
             
         }
     
-        public void Flip()
+        protected void Flip()
         {
             facingRight = !facingRight;
             Transform transform1 = transform;

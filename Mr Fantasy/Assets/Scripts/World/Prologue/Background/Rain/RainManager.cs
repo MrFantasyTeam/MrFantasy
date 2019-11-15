@@ -18,13 +18,14 @@ namespace World.Prologue.Background.Rain
         private const string AnimName = "HeavyRain";
         private const float WaitTime = 30;
         private float timer;
+        private static readonly int HeavyRain = Animator.StringToHash(AnimName);
 
         #endregion
 
         #region Boolean Values
 
         private bool entered;
-
+        
         #endregion
 
         #region Default Methods
@@ -51,7 +52,7 @@ namespace World.Prologue.Background.Rain
             // then set anim to heavy rain, reset counter and damage player
             if (other.gameObject.CompareTag(AnimName) || timer >= WaitTime)
             {
-                anim.SetBool(AnimName, true);
+                anim.SetBool(HeavyRain, true);
                 entered = true;
                 timer = 0;
                 StartCoroutine(Wait());
@@ -62,7 +63,7 @@ namespace World.Prologue.Background.Rain
         private void OnTriggerExit2D(Collider2D other)
         {
             if (!other.gameObject.CompareTag(AnimName)) return;
-            anim.SetBool(AnimName, true);
+            anim.SetBool(HeavyRain, true);
             entered = false;
         }
 
