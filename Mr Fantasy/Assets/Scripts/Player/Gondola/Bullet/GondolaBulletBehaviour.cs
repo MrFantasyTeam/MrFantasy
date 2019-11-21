@@ -10,6 +10,8 @@ namespace Player.Gondola.Bullet
 
         private GondolaMovement player;
         private Animator anim;
+        public GameObject absorbEnemy;
+        public Transform absorbEnemyPosition;
 
         #endregion
 
@@ -38,15 +40,9 @@ namespace Player.Gondola.Bullet
         {
             anim = GetComponent<Animator>();
             player = GameObject.FindWithTag("Player").GetComponent<GondolaMovement>();
+            absorbEnemy = gameObject.transform.GetChild(0).gameObject;
         }
 
-        private void Start()
-        {
-            caught = false;
-            hit = false;
-            catchAnimTriggered = false;
-        }
-        
         private void FixedUpdate()
         {
             if (!hit) Moving();
@@ -73,6 +69,7 @@ namespace Player.Gondola.Bullet
             hit = true;
             recharge = other.GetComponent<EnemiesGeneralBehaviour>().damage;
             Destroy(other.transform.parent.gameObject);
+            absorbEnemy.SetActive(true);
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -90,18 +87,27 @@ namespace Player.Gondola.Bullet
 
         private void GoBackToPlayer()
         {
+            anim.SetTrigger(GoBack);
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed / 100);
             if (!(Mathf.Abs(transform.position.x - player.transform.position.x) < 0.05f)) return;
             player.ChangeTransparency(recharge / 100);
             anim.SetTrigger(Default);
+            ResetBool();
             gameObject.SetActive(false);
+        }
+
+        private void ResetBool()
+        {
+            caught = false;
+            hit = false;
+            catchAnimTriggered = false;
         }
         
         private IEnumerator WaitForAnimEnd(int animName, float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
-            anim.SetTrigger(animName);
             caught = true;
+            absorbEnemy.SetActive(false);
         }
 
         #endregion

@@ -14,7 +14,9 @@ namespace Enemies
         #region Settings Parameters
 
         public float damage;
-        public float speed = 2;
+        private float speed;
+        public float defaultSpeed = 2;
+        public float attackingSpeed = 8;
         public float distance;
 
         #endregion
@@ -31,6 +33,7 @@ namespace Enemies
         protected void Start()
         {
             myPath = GetComponent<FollowPath>();
+            speed = defaultSpeed;
         }
 
         protected virtual void FixedUpdate()
@@ -58,6 +61,7 @@ namespace Enemies
             }
             else
             {
+                speed = defaultSpeed;
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * 2 * Time.deltaTime);
                 if (transform.position.x > player.transform.position.x)
                 {
@@ -74,10 +78,10 @@ namespace Enemies
 
         protected virtual void Attack()
         {
-            
+            speed = attackingSpeed;
         }
     
-        protected void Flip()
+        public void Flip()
         {
             facingRight = !facingRight;
             Transform transform1 = transform;

@@ -2,15 +2,331 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af90fe4f-6128-4e45-9ead-8e9851c3692c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Animation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Animation/Zanzara.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Animation/Zanzara.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Animation/Zanzara_00009.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Animation/Zanzara_00009.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00000.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00002.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00003.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00004.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00005.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00006.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00007.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00008.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00008.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00009.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00009.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00010.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00011.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00012.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00013.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00014.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00015.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00016.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00017.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00018.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00019.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00020.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00021.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00022.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00023.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00024.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00025.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00025.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00026.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00026.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00027.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00027.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00028.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00028.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00029.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00029.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00030.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00030.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00031.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00031.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00032.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00032.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00033.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00033.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00034.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00034.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00035.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00035.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00036.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00036.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00037.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00037.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00038.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00038.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00039.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00039.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00040.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00040.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00041.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00041.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00042.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00042.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00043.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00043.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00044.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00044.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00045.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00045.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00046.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00046.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00047.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00047.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00048.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00048.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00049.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00049.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00050.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00050.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00051.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00051.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00052.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00052.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00053.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00053.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00054.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00054.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00055.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00055.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00056.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00056.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00057.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00057.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00058.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00058.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00059.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00059.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00060.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00060.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00061.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00061.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00062.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00062.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00063.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00063.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00064.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00064.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00065.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00065.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00066.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00066.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00067.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00067.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00068.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00068.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00069.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00069.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00070.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00070.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00071.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00071.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00072.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00072.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00073.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00073.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00074.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00074.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00075.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00075.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00076.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00076.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00077.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00077.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00078.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00078.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00079.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00079.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00080.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00080.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00081.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00081.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00082.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00082.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00083.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00083.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00084.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00084.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00085.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00085.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00086.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00086.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00087.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00087.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00088.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00088.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00089.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00089.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00090.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00090.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00091.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00091.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00092.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00092.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00093.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00093.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00094.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00094.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00095.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00095.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00096.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00096.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00097.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00097.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00098.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00098.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00099.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Picture/Zanzara_00099.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Zanzara.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Zanzara.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Zanzara_Path.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Zanzara/Zanzara_Path.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Moving/Animation/GondolaMove_00014.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Gondola/Moving/Animation/GondolaMove_00014.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Animation/CatchSphere.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Animation/CatchSphere.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Animation/SphereComeBack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Animation/SphereComeBack.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Animation/SphereIncorporate.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Animation/SphereIncorporate.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Animation/Sphere_00000.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Animation/Sphere_00000.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/CatchSphere.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/CatchSphere.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00000.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00001.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00002.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00003.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00004.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00005.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00006.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00007.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00008.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00008.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00009.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00009.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00010.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00011.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00012.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00013.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00014.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00015.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00016.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00017.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00018.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00019.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00020.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00021.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00022.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00023.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00024.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00025.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00025.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00026.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00026.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00027.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00027.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00028.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00028.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00029.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00029.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00030.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00030.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00031.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00031.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00032.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00032.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00033.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00033.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00034.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00034.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00035.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00035.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00036.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00036.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00037.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00037.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00038.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00038.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00039.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00039.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00040.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00040.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00041.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00041.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00042.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00042.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00043.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00043.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00044.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00044.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00045.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00045.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00046.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00046.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00047.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00047.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00048.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00048.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00049.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Gondola/Shoot/Sphere/Picture/SphereIncorporate/Sphere_00049_00049.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scene/Prologue.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/Prologue.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/FollowPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/FollowPath.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/MovementPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/MovementPath.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Prologue/Buffalo/BuffaloBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Prologue/Buffalo/BuffaloBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,31 +339,35 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/MoleculePooler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Creatures/MoleculeController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Prologue/Buffalo/BuffaloBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasyPesce/MrFantasyPesceMovement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/MrFantasyGen.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/50A7D4C6-BF79-402F-B57E-36B7C2AAE5E0/fd/729be1bf/Single.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8D2DEAE-EB3A-4471-B3E2-24C2A136823A/0f/888ec293/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/SparaController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerControlDisable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/MrFantasyGen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8D2DEAE-EB3A-4471-B3E2-24C2A136823A/d2/7b2613ba/WaitUntil.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8D2DEAE-EB3A-4471-B3E2-24C2A136823A/cd/7e097b9f/WaitForSeconds.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Prologue/Buffalo/BuffaloBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MrFantasyPesce/MrFantasyPesceMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/DestroyPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/EndOfLevelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DCDAA33-2E70-4ABE-85AB-94D0F06C4102/82/9dc8179d/TMP_InputField.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthDestroyer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/FollowPath.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/DestroyPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/MovementPath.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/EndOfLevelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/MoleculePooler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainScripts/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8D2DEAE-EB3A-4471-B3E2-24C2A136823A/cc/994e45d4/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -61,18 +381,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/1HealthDestroyer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthDestroyer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MovementPath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/FollowPath.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Prologue/Buffalo/BuffaloBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" />
       </list>
     </option>
   </component>
@@ -147,6 +467,7 @@
       <workItem from="1573583249323" duration="17143000" />
       <workItem from="1573740741684" duration="6426000" />
       <workItem from="1573815703303" duration="9392000" />
+      <workItem from="1574366389055" duration="5189000" />
     </task>
     <servers />
   </component>

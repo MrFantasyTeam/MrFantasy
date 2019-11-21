@@ -66,10 +66,18 @@ namespace World.General.HealthManager
         {
             InitializePopUp();
             if (variation > 0)
+            {
                 textMesh.color = Color.green;
+                textMesh.text = "+";
+            }
+               
             if (variation < 0)
+            {
                 textMesh.color = Color.red;
-            textMesh.text = Mathf.Abs(variation).ToString(NumberFormatInfo.CurrentInfo);
+                textMesh.text = "-";
+            }
+                
+            //textMesh.text = Mathf.Abs(variation).ToString(NumberFormatInfo.CurrentInfo);
             healthPopUp.transform.position = new Vector2(hitObject.position.x, hitObject.position.y + yOffset);
             healthPopUp.transform.localScale = new Vector2(0.3f, 0.3f);
         }

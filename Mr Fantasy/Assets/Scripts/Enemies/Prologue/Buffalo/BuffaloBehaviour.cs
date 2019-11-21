@@ -4,7 +4,7 @@
     {
         private float distanceToPlayer;
 
-        prote void FixedUpdate()
+        protected void FixedUpdate()
         {
             if (spottedPlayer)
             {
