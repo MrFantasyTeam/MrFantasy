@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Player.Gondola;
 using UnityEngine;
 using World.General.Camera;
@@ -12,6 +11,7 @@ namespace World.Prologue.Background.Tentacoli
         #region Objects
 
         private Rigidbody2D player;
+        private LevelManager levelManager;
         private GameObject mainCamera;
         public GameObject tentacolo;
         public GameObject tentacoliPosition;
@@ -21,10 +21,14 @@ namespace World.Prologue.Background.Tentacoli
 
         #region Settings Variables
 
+        private Vector3 velocity;
         public float grabbingSpeed;
         public float movingSpeed;
-        private int num = 0;
         public float offset;
+        private int num;
+        private const string PlayerTag = "Player";
+        private const string MainCameraTag = "MainCamera";
+
         #endregion
 
         #region Boolean
@@ -33,28 +37,37 @@ namespace World.Prologue.Background.Tentacoli
         public bool die;
 
         #endregion
-        
+
+        #region Default Methods
+
         private void Start()
         {
-            mainCamera = GameObject.FindWithTag("MainCamera");
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+            mainCamera = GameObject.FindWithTag(MainCameraTag);
+            player = GameObject.FindGameObjectWithTag(PlayerTag).GetComponent<Rigidbody2D>();
+            levelManager = mainCamera.GetComponent<LevelManager>();
+            num = 0;
+            velocity = new Vector3(0, 0, transform.position.z);
+
         }
         private void LateUpdate()
         {
-            if (!grabbed)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x + offset, player.transform.position.y),
-                    movingSpeed * Time.deltaTime);
-            }
+            if (grabbed) return;
+            Vector3 thisPosition = transform.position;
+            Vector3 playerPosition = player.transform.position;
+            playerPosition = new Vector3(playerPosition.x + offset, playerPosition.y, thisPosition.z);
+            thisPosition = Vector3.SmoothDamp(thisPosition, playerPosition, ref velocity, movingSpeed);
+            transform.position = thisPosition;
         }
+
+        #endregion
+
+        #region Custom Method
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                grabbed = true;
-                GrabPlayer();
-            }
+            if (!other.gameObject.CompareTag(PlayerTag)) return;
+            grabbed = true;
+            GrabPlayer();
         }
 
         private void GrabPlayer()
@@ -64,28 +77,32 @@ namespace World.Prologue.Background.Tentacoli
             if (num == 0) Instantiate(tentacolo, new Vector2(tentacoliPosition.transform.position.x, gondola.transform.position.y + 3), Quaternion.identity);
             num++;
             StartCoroutine(WaitAnim(.5f));
-//            mainCamera.GetComponent<CameraMoveOnPlayerSlightly>().smoothTime = 1000;
             mainCamera.GetComponent<CameraMoveOnPlayer>().enabled = false;
             StartCoroutine(WaitAndDie(.8f));
         }
         
-        IEnumerator WaitAndDie(float timer)
+        private IEnumerator WaitAndDie(float timer)
         {
             yield return new WaitForSeconds(timer);
             if (die) Death();
         }
 
-        IEnumerator WaitAnim(float timer)
+        /** Wait for animation to complete, then set die to true */
+        private IEnumerator WaitAnim(float timer)
         {
             yield return new WaitForSeconds(timer);
-            gondola.transform.position = new Vector2(gondola.transform.position.x - grabbingSpeed, gondola.transform.position.y);
+            var position = gondola.transform.position;
+            position = new Vector2(position.x - grabbingSpeed, position.y);
+            gondola.transform.position = position;
             die = true;
         }
-        
-        public void Death()
+
+        private void Death()
         {
             // TODO do something to show that the player is dead
-            StartCoroutine(mainCamera.GetComponent<LevelManager>().LoadAsync(1));
+            StartCoroutine(levelManager.LoadAsync(1));
         }
+
+        #endregion
     }
 }

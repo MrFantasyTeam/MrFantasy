@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af90fe4f-6128-4e45-9ead-8e9851c3692c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scene/Prologue.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/Prologue.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Tentacoli/TentacoliBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Tentacoli/TentacoliBehaviour.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +155,8 @@
       <workItem from="1573815703303" duration="9392000" />
       <workItem from="1574366389055" duration="5907000" />
       <workItem from="1575844679179" duration="2589000" />
-      <workItem from="1577459174845" duration="12699000" />
+      <workItem from="1577459174845" duration="13091000" />
+      <workItem from="1577474592308" duration="2322000" />
     </task>
     <servers />
   </component>
