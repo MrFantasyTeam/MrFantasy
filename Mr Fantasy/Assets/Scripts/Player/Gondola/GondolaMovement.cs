@@ -14,12 +14,14 @@ namespace Player.Gondola
         private SpriteRenderer sprite;
         public Transform bulletPosition;
         private Animator anim;
+        private Transform playerDefaultRotation;
 
         #endregion
 
         #region Settings Parameters
 
         public float speed;
+        public float rotationSpeed;
         public float health;
         public float shootTime;
         public float num;
@@ -30,6 +32,12 @@ namespace Player.Gondola
 
         #endregion
 
+        #region Boolean
+
+        public bool isShooting;
+
+        #endregion
+
         // Start is called before the first frame update
         void Start()
         {
@@ -37,12 +45,16 @@ namespace Player.Gondola
             sprite = GetComponent<SpriteRenderer>();
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             anim = GetComponent<Animator>();
+//            playerDefaultRotation.rotation = new Quaternion(0, 0, 0, 0);
         }
 
         // Update is called once per frame
         void FixedUpdate()
         {
             shootTime += Time.deltaTime;
+//            playerDefaultRotation.transform.position = new Vector2(transform.position.x, transform.position.y);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, new Quaternion(0, 0, 0, 1), 
+                rotationSpeed * Time.deltaTime);
             Move();
             ClampPosition();
             if (health <= 0) Death();
@@ -61,7 +73,7 @@ namespace Player.Gondola
         private void ClampPosition()
         {
             Vector2 clampedPosition = transform.position;
-            clampedPosition.y = Mathf.Clamp(clampedPosition.y, minHeight, maxHeight);
+//            clampedPosition.y = Mathf.Clamp(clampedPosition.y, minHeight, maxHeight);
             transform.position = clampedPosition;
         }
 
@@ -94,7 +106,7 @@ namespace Player.Gondola
             StartCoroutine(Wait());
         }
 
-        private void Death()
+        public void Death()
         {
             // TODO do something to show that the player is dead
             StartCoroutine(mainCamera.GetComponent<LevelManager>().LoadAsync(1));
@@ -104,6 +116,7 @@ namespace Player.Gondola
         {
             if (shootTime < 1) return;
             ObjectPooler.SharedIntance.SpawnFromPool("bullet", bulletPosition.position, Quaternion.identity);
+            isShooting = true;
             shootTime = 0;
         }
     }

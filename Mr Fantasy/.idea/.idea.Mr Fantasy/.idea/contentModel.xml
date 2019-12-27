@@ -38,6 +38,7 @@
           </e>
           <e p="Player" t="Include">
             <e p="Gondola" t="Include">
+              <e p="Bagliore.cs" t="Include" />
               <e p="Bullet" t="Include">
                 <e p="GondolaBulletBehaviour.cs" t="Include" />
               </e>
@@ -124,8 +125,14 @@
             </e>
             <e p="Prologue" t="Include">
               <e p="Background" t="Include">
+                <e p="Fog" t="Include">
+                  <e p="FogController.cs" t="Include" />
+                </e>
                 <e p="Rain" t="Include">
                   <e p="RainManager.cs" t="Include" />
+                </e>
+                <e p="Tentacoli" t="Include">
+                  <e p="TentacoliBehaviour.cs" t="Include" />
                 </e>
               </e>
             </e>
