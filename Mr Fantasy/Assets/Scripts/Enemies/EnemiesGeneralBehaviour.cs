@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Boo.Lang;
+using UnityEngine;
 
 namespace Enemies
 {
@@ -8,16 +9,20 @@ namespace Enemies
 
         public GameObject player;
         public FollowPath myPath;
+        public GameObject moleculeCluster;
+        public List<Collider2D> colliders;
+        public SpriteRenderer spriteRenderer;
 
         #endregion
 
         #region Settings Parameters
-
+        
         public float damage;
         private float speed;
         public float defaultSpeed = 2;
         public float attackingSpeed = 8;
         public float distance;
+        private const float MoleculeSpeed = 10f;
 
         #endregion
 
@@ -25,6 +30,7 @@ namespace Enemies
 
         public bool spottedPlayer;
         public bool facingRight;
+        public bool disabledColliderAndSprite;
 
         #endregion
 
@@ -33,6 +39,11 @@ namespace Enemies
         protected void Start()
         {
             myPath = GetComponent<FollowPath>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            foreach (Collider2D col in GetComponents<Collider2D>())
+            {
+                colliders.Add(col);
+            }
             speed = defaultSpeed;
         }
 
@@ -88,6 +99,30 @@ namespace Enemies
             Vector3 theScale = transform1.localScale;
             theScale.x *= -1;
             transform1.localScale = theScale;
+        }
+
+        public void Decompose(Transform bulletPosition)
+        {
+            if (!disabledColliderAndSprite) DisableSpriteAndColliders();
+            foreach (Transform molecule in moleculeCluster.GetComponentsInChildren<Transform>())
+            {
+                molecule.position = Vector2.MoveTowards(molecule.position, bulletPosition.position,
+                    MoleculeSpeed * Time.deltaTime);
+            }
+        }
+
+        private void DisableSpriteAndColliders()
+        {
+            spriteRenderer.enabled = false;
+            foreach (Collider2D col in colliders)
+            {
+                col.enabled = false;
+            }
+            foreach (Transform molecule in moleculeCluster.GetComponentInChildren<Transform>())
+            {
+                molecule.gameObject.SetActive(true);
+            }
+            disabledColliderAndSprite = true;
         }
 
         #endregion

@@ -10,6 +10,7 @@ namespace Player.Gondola.Bullet
 
         private GondolaMovement player;
         private Animator anim;
+        public GameObject enemy;
         public GameObject absorbEnemy;
         public Transform absorbEnemyPosition;
 
@@ -40,7 +41,7 @@ namespace Player.Gondola.Bullet
         {
             anim = GetComponent<Animator>();
             player = GameObject.FindWithTag("Player").GetComponent<GondolaMovement>();
-            absorbEnemy = gameObject.transform.GetChild(0).gameObject;
+//            absorbEnemy = gameObject.transform.GetChild(0).gameObject;
         }
 
         private void FixedUpdate()
@@ -68,8 +69,8 @@ namespace Player.Gondola.Bullet
             if (hit) return;
             hit = true;
             recharge = other.GetComponent<EnemiesGeneralBehaviour>().damage;
-            Destroy(other.transform.parent.gameObject);
-            absorbEnemy.SetActive(true);
+//            Destroy(other.transform.parent.gameObject);
+//            absorbEnemy.SetActive(true);
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -82,11 +83,13 @@ namespace Player.Gondola.Bullet
         {
             catchAnimTriggered = true;
             anim.SetTrigger(Catch);
+            enemy.GetComponent<EnemiesGeneralBehaviour>().Decompose(transform);
             StartCoroutine(WaitForAnimEnd(GoBack, CatchAnimDuration));
         }
 
         private void GoBackToPlayer()
         {
+            Destroy(enemy);
             anim.SetTrigger(GoBack);
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed / 100);
             if (!(Mathf.Abs(transform.position.x - player.transform.position.x) < 0.05f)) return;
@@ -107,7 +110,7 @@ namespace Player.Gondola.Bullet
         {
             yield return new WaitForSeconds(waitTime);
             caught = true;
-            absorbEnemy.SetActive(false);
+//            absorbEnemy.SetActive(false);
         }
 
         #endregion
