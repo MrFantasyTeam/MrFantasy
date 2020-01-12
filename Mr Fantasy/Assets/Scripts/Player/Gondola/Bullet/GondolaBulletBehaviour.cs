@@ -11,8 +11,6 @@ namespace Player.Gondola.Bullet
         private GondolaMovement player;
         private Animator anim;
         public GameObject enemy;
-        public GameObject absorbEnemy;
-        public Transform absorbEnemyPosition;
 
         #endregion
 
@@ -41,7 +39,6 @@ namespace Player.Gondola.Bullet
         {
             anim = GetComponent<Animator>();
             player = GameObject.FindWithTag("Player").GetComponent<GondolaMovement>();
-//            absorbEnemy = gameObject.transform.GetChild(0).gameObject;
         }
 
         private void FixedUpdate()
@@ -49,7 +46,7 @@ namespace Player.Gondola.Bullet
             if (!hit) Moving();
             else
             {
-                if (!caught && !catchAnimTriggered) CatchEnemy();
+                if (!caught || !catchAnimTriggered) CatchEnemy();
                 else if(caught) GoBackToPlayer();
             }
         }
@@ -68,9 +65,8 @@ namespace Player.Gondola.Bullet
             if (!other.gameObject.tag.Equals("Enemy")) return;
             if (hit) return;
             hit = true;
+            enemy = other.gameObject;
             recharge = other.GetComponent<EnemiesGeneralBehaviour>().damage;
-//            Destroy(other.transform.parent.gameObject);
-//            absorbEnemy.SetActive(true);
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -81,8 +77,8 @@ namespace Player.Gondola.Bullet
 
         private void CatchEnemy()
         {
+            if (!catchAnimTriggered) anim.SetTrigger(Catch);
             catchAnimTriggered = true;
-            anim.SetTrigger(Catch);
             enemy.GetComponent<EnemiesGeneralBehaviour>().Decompose(transform);
             StartCoroutine(WaitForAnimEnd(GoBack, CatchAnimDuration));
         }
@@ -110,7 +106,6 @@ namespace Player.Gondola.Bullet
         {
             yield return new WaitForSeconds(waitTime);
             caught = true;
-//            absorbEnemy.SetActive(false);
         }
 
         #endregion

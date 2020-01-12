@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="af90fe4f-6128-4e45-9ead-8e9851c3692c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Tentacoli/TentacoliBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Tentacoli/TentacoliBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scene/Prologue.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/Prologue.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +47,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scene/Prologue.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/MoleculePooler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainScripts/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -71,14 +74,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MovementPath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/FollowPath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Prologue/Buffalo/BuffaloBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bagliore.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Fog/FogController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Tentacoli/TentacoliBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" />
       </list>
     </option>
   </component>
@@ -156,7 +159,9 @@
       <workItem from="1574366389055" duration="5907000" />
       <workItem from="1575844679179" duration="2589000" />
       <workItem from="1577459174845" duration="13091000" />
-      <workItem from="1577474592308" duration="2322000" />
+      <workItem from="1577474592308" duration="2729000" />
+      <workItem from="1578432315998" duration="5346000" />
+      <workItem from="1578850362947" duration="2194000" />
     </task>
     <servers />
   </component>

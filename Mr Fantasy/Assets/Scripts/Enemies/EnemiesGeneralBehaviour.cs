@@ -22,7 +22,7 @@ namespace Enemies
         public float defaultSpeed = 2;
         public float attackingSpeed = 8;
         public float distance;
-        private const float MoleculeSpeed = 10f;
+        private const float MoleculeSpeed = 20f;
 
         #endregion
 
@@ -103,7 +103,10 @@ namespace Enemies
 
         public void Decompose(Transform bulletPosition)
         {
-            if (!disabledColliderAndSprite) DisableSpriteAndColliders();
+            if (!disabledColliderAndSprite)
+            {
+                DisableSpriteAndColliders();
+            }
             foreach (Transform molecule in moleculeCluster.GetComponentsInChildren<Transform>())
             {
                 molecule.position = Vector2.MoveTowards(molecule.position, bulletPosition.position,
@@ -114,9 +117,12 @@ namespace Enemies
         private void DisableSpriteAndColliders()
         {
             spriteRenderer.enabled = false;
-            foreach (Collider2D col in colliders)
+            if (colliders != null)
             {
-                col.enabled = false;
+                foreach (Collider2D col in colliders)
+                {
+                    col.enabled = false;
+                }  
             }
             foreach (Transform molecule in moleculeCluster.GetComponentInChildren<Transform>())
             {
