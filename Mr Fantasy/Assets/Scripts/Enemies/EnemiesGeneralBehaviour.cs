@@ -22,7 +22,7 @@ namespace Enemies
         public float defaultSpeed = 2;
         public float attackingSpeed = 8;
         public float distance;
-        private const float MoleculeSpeed = 20f;
+        private const float MoleculeSpeed = 8f;
 
         #endregion
 

@@ -9,37 +9,31 @@ namespace World.Prologue.Background.Rain
     {
         #region Objects
 
-        private Animator anim;
-
+        public GameObject player;
+        
         #endregion
 
         #region Settings Properties
 
-        private const string AnimName = "HeavyRain";
-        private const float WaitTime = 30;
-        private float timer;
-        private static readonly int HeavyRain = Animator.StringToHash(AnimName);
+        private const float Coeff = 0.002f; 
+        private const string PlayerTag = "Player";
+        public float defaultDamage;
+        public float actualDamage;
+        public float playerHeight;
 
         #endregion
 
         #region Boolean Values
 
-        private bool entered;
+        public bool entered;
         
         #endregion
 
         #region Default Methods
-
-        private void Awake()
-        {
-            anim = GetComponent<Animator>();
-            timer = WaitTime;
-        }
-
+        
         private void Update()
         {
-            if (!entered)
-                timer += Time.deltaTime;
+            if (entered) DamagePlayer();
         }
 
         #endregion
@@ -48,30 +42,23 @@ namespace World.Prologue.Background.Rain
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            // If hit game object has correct tag and timer is correct
-            // then set anim to heavy rain, reset counter and damage player
-            if (other.gameObject.CompareTag(AnimName) || timer >= WaitTime)
+            if (other.gameObject.CompareTag(PlayerTag))
             {
-                anim.SetBool(HeavyRain, true);
+                player = other.gameObject;
                 entered = true;
-                timer = 0;
-                StartCoroutine(Wait());
             }
         }
-
-        /** Set the anim to light rain and start timer. */
+        
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (!other.gameObject.CompareTag(AnimName)) return;
-            anim.SetBool(HeavyRain, true);
-            entered = false;
+            if (other.gameObject.CompareTag(PlayerTag)) entered = false;
         }
 
-        /** Wait for x seconds and then damage player. */
-        private IEnumerator Wait()
+        private void DamagePlayer()
         {
-            yield return new WaitForSeconds(2);
-            GameObject.FindWithTag("Player").GetComponent<GondolaMovement>().ChangeTransparency(-10);
+            playerHeight = player.transform.position.y;
+            actualDamage = defaultDamage * playerHeight * Coeff;
+            player.GetComponent<GondolaMovement>().ChangeTransparency(actualDamage);
         }
 
         #endregion

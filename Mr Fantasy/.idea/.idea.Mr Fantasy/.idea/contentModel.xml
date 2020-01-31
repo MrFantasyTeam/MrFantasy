@@ -39,6 +39,7 @@
           <e p="Player" t="Include">
             <e p="Gondola" t="Include">
               <e p="Bagliore.cs" t="Include" />
+              <e p="BarrierManager.cs" t="Include" />
               <e p="Bullet" t="Include">
                 <e p="GondolaBulletBehaviour.cs" t="Include" />
               </e>
@@ -76,10 +77,14 @@
               </e>
             </e>
             <e p="General" t="Include">
+              <e p="Background" t="Include">
+                <e p="BackgroundMover.cs" t="Include" />
+              </e>
               <e p="Camera" t="Include">
                 <e p="CameraMove.cs" t="Include" />
                 <e p="CameraMoveOnPlayer.cs" t="Include" />
                 <e p="CameraMoveOnPlayerSlightly.cs" t="Include" />
+                <e p="YAxisMovementRelateToCamera.cs" t="Include" />
               </e>
               <e p="HealthManager" t="Include">
                 <e p="HealthDestroyer.cs" t="Include" />
@@ -125,8 +130,8 @@
             </e>
             <e p="Prologue" t="Include">
               <e p="Background" t="Include">
-                <e p="Fog" t="Include">
-                  <e p="FogController.cs" t="Include" />
+                <e p="Lava" t="Include">
+                  <e p="LavaManager.cs" t="Include" />
                 </e>
                 <e p="Rain" t="Include">
                   <e p="RainManager.cs" t="Include" />

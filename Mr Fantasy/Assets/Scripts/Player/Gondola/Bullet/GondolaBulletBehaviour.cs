@@ -63,6 +63,7 @@ namespace Player.Gondola.Bullet
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.gameObject.tag.Equals("Enemy")) return;
+            other.gameObject.tag = "DeadEnemy";
             if (hit) return;
             hit = true;
             enemy = other.gameObject;
@@ -89,7 +90,7 @@ namespace Player.Gondola.Bullet
             anim.SetTrigger(GoBack);
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed / 100);
             if (!(Mathf.Abs(transform.position.x - player.transform.position.x) < 0.05f)) return;
-            player.ChangeTransparency(recharge / 100);
+            player.ChangeTransparency(recharge);
             anim.SetTrigger(Default);
             ResetBool();
             gameObject.SetActive(false);

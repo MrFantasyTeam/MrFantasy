@@ -15,6 +15,8 @@ namespace Player.Gondola
         public Transform bulletPosition;
         private Animator anim;
         private Transform playerDefaultRotation;
+        public GameObject[] barriers;
+        public GameObject activeBarrier;
 
         #endregion
 
@@ -29,6 +31,7 @@ namespace Player.Gondola
         public float minHeight = -5;
         private const  string MovingAnimBool = "Move";
         private static readonly int Moving = Animator.StringToHash(MovingAnimBool);
+        private int barrierIndex;
 
         #endregion
 
@@ -45,6 +48,7 @@ namespace Player.Gondola
             sprite = GetComponent<SpriteRenderer>();
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             anim = GetComponent<Animator>();
+            barrierIndex = barriers.Length - 1;
 //            playerDefaultRotation.rotation = new Quaternion(0, 0, 0, 0);
         }
 
@@ -94,16 +98,45 @@ namespace Player.Gondola
 
         public void ChangeTransparency(float variation)
         {
+            
             if (health + (variation) > 100)
                 health = 100;
-            else 
-                health += variation;
+            else health += variation;
             Color color = sprite.color;
-            color.a += variation;
+            Debug.Log("Color at beginning is: " + color.a);
+            color.a += variation / 100;
+            Debug.Log("Color a is: " + color.a);
             sprite.color = new Color(color.r, color.g, color.b, color.a);
+            ManageBarrier();
+            Debug.Log("Damaging player");
             // display the increase / decrease of health
-            gameObject.AddComponent<HealthVariationDisplayer>().ShowHealthVariation(variation, transform);
+//            gameObject.AddComponent<HealthVariationDisplayer>().ShowHealthVariation(variation, transform);
             StartCoroutine(Wait());
+        }
+
+        public void ManageBarrier()
+        {
+            if (health >= 75)
+            {
+                barriers[barrierIndex].SetActive(false);
+                barrierIndex = 2;
+                barriers[barrierIndex].SetActive(true);
+            } else if (health >= 50 && health < 75)
+            {
+                barriers[barrierIndex].SetActive(false);
+                barrierIndex = 1;
+                barriers[barrierIndex].SetActive(true);
+            } else if (health >= 25 && health < 50)
+            {
+                barriers[barrierIndex].SetActive(false);
+                barrierIndex = 0;
+                barriers[barrierIndex].SetActive(true);
+            }
+            else
+            {
+                barriers[barrierIndex].SetActive(false);
+                barrierIndex = 0;
+            }
         }
 
         public void Death()
@@ -114,7 +147,7 @@ namespace Player.Gondola
 
         private void Shoot()
         {
-            if (shootTime < 1) return;
+            if (shootTime < 0.6f) return;
             ObjectPooler.SharedIntance.SpawnFromPool("bullet", bulletPosition.position, Quaternion.identity);
             isShooting = true;
             shootTime = 0;

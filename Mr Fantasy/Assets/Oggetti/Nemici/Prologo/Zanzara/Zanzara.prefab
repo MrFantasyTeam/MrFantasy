@@ -88,7 +88,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9135158761376190344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.795632, y: 10.58413, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9135158760705119778}
@@ -202,9 +202,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   myPath: {fileID: 0}
+  moleculeCluster: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   damage: 100
   defaultSpeed: 4
   attackingSpeed: 4
   distance: 0
   spottedPlayer: 0
   facingRight: 0
+  disabledColliderAndSprite: 0
