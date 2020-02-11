@@ -31,7 +31,7 @@ namespace Player.Gondola
         public float minHeight = -5;
         private const  string MovingAnimBool = "Move";
         private static readonly int Moving = Animator.StringToHash(MovingAnimBool);
-        private int barrierIndex;
+        public int barrierIndex;
 
         #endregion
 
@@ -103,12 +103,12 @@ namespace Player.Gondola
                 health = 100;
             else health += variation;
             Color color = sprite.color;
-            Debug.Log("Color at beginning is: " + color.a);
+//            Debug.Log("Color at beginning is: " + color.a);
             color.a += variation / 100;
-            Debug.Log("Color a is: " + color.a);
+//            Debug.Log("Color a is: " + color.a);
             sprite.color = new Color(color.r, color.g, color.b, color.a);
             ManageBarrier();
-            Debug.Log("Damaging player");
+//            Debug.Log("Damaging player");
             // display the increase / decrease of health
 //            gameObject.AddComponent<HealthVariationDisplayer>().ShowHealthVariation(variation, transform);
             StartCoroutine(Wait());

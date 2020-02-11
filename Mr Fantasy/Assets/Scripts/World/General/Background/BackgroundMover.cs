@@ -15,8 +15,9 @@ namespace World.General.Background
         #region Settings Parameters 
         
         private float offset;
-        public int backgroundsCounter = 0;
+        public int backgroundsCounter = 1;
         public int lastInactive;
+        public float previousXPosition;
 
         #endregion
         void Start()
@@ -26,33 +27,91 @@ namespace World.General.Background
             {
                 background.SetActive(true);
             }
-            
+
+            previousXPosition = transform.position.x;
             offset = backgrounds[0].GetComponent<SpriteRenderer>().bounds.size.x;
         }
         
         void Update()
         {
+//            if (previousXPosition > transform.position.x)
+//            {
+//                if (lastInactive > backgroundsCounter && backgroundsCounter > 0)
+//                {
+//                    lastInactive = backgroundsCounter - 1;
+//                }
+//            }
+
+//            if (previousXPosition < transform.position.x)
+//            {
+//                if (lastInactive < backgroundsCounter &&  backgroundsCounter < backgrounds.Length - 1)
+//                {
+//                    Debug.LogWarning("Incrementing lastInactive index");
+//                    lastInactive = backgroundsCounter + 1;
+//                }
+//            }
             if (Mathf.Abs(transform.position.x - backgrounds[backgroundsCounter].transform.position.x) < offset) return;
-            backgrounds[backgroundsCounter].transform.position = new Vector3(backgrounds[lastInactive].transform.position.x + offset, 
-                backgrounds[lastInactive].transform.position.y, backgrounds[lastInactive].transform.position.z);
-            backgrounds[backgroundsCounter].gameObject.GetComponent<SpriteRenderer>().flipX =
-                !backgrounds[backgroundsCounter].gameObject.GetComponent<SpriteRenderer>().flipX;
-            // TODO make it possibile in other levels to go backward 
-            manageCounterWhileGoingRight();
+            if (transform.position.x > previousXPosition)
+            {
+                manageCounterWhileGoingRight();
+            } else if (transform.position.x < previousXPosition)
+            {
+                manageCounterWhileGoingLeft();
+            }
+            
+            previousXPosition = transform.position.x;
         }
 
         private void manageCounterWhileGoingRight()
         {
-            if (backgroundsCounter < backgrounds.Length - 1)
+            if (backgroundsCounter == 0)
             {
+                backgrounds[backgrounds.Length - 1].transform.position = new Vector3(backgrounds[lastInactive].transform.position.x + offset,
+                    backgrounds[lastInactive].transform.position.y, backgrounds[lastInactive].transform.position.z);
+                backgroundsCounter++;
+                if (lastInactive == backgrounds.Length - 1) lastInactive = 0;
+                else lastInactive++;
+            } else if (backgroundsCounter == backgrounds.Length - 1)
+            {
+                backgrounds[backgrounds.Length - 2].transform.position = new Vector3(backgrounds[lastInactive].transform.position.x + offset,
+                    backgrounds[lastInactive].transform.position.y, backgrounds[lastInactive].transform.position.z);
+                backgroundsCounter = 0;
+                lastInactive = backgrounds.Length - 2;
+            }
+            else
+            {
+                backgrounds[backgroundsCounter - 1].transform.position = new Vector3(backgrounds[lastInactive].transform.position.x + offset,
+                    backgrounds[lastInactive].transform.position.y, backgrounds[lastInactive].transform.position.z);
                 backgroundsCounter++;
                 if (lastInactive == backgrounds.Length - 1) lastInactive = 0;
                 else lastInactive++;
             }
+        }
+
+        private void manageCounterWhileGoingLeft()
+        {
+            if (backgroundsCounter == 0)
+            {
+                backgrounds[lastInactive].transform.position = new Vector3(backgrounds[backgrounds.Length - 1].transform.position.x - offset,
+                    backgrounds[backgrounds.Length - 1].transform.position.y, backgrounds[backgrounds.Length - 1].transform.position.z);
+                backgroundsCounter = backgrounds.Length - 1;
+                lastInactive--;
+            } else if (backgroundsCounter == backgrounds.Length - 1)
+            {
+                Debug.Log("Should move");
+                backgrounds[lastInactive].transform.position = new Vector3(backgrounds[backgrounds.Length - 2].transform.position.x - offset,
+                    backgrounds[backgrounds.Length - 2].transform.position.y, backgrounds[backgrounds.Length - 2].transform.position.z);
+                backgroundsCounter--;
+                if (lastInactive == 0) lastInactive = backgrounds.Length - 1;
+                else lastInactive--;
+            }
             else
             {
-                backgroundsCounter = 0;
-                lastInactive = backgrounds.Length - 1;
+                backgrounds[lastInactive].transform.position = new Vector3(backgrounds[backgroundsCounter - 1].transform.position.x - offset,
+                    backgrounds[backgroundsCounter - 1].transform.position.y, backgrounds[backgroundsCounter - 1].transform.position.z);
+                backgroundsCounter--;
+                if (lastInactive == 0) lastInactive = backgrounds.Length - 1;
+                else lastInactive--;
             }
         }
     }

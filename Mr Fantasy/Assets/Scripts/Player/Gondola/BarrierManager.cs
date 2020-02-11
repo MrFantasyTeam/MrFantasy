@@ -29,7 +29,7 @@ namespace Player.Gondola
             if (other.gameObject.CompareTag(EnemyTag))
             {
                 player.GetComponent<GondolaMovement>().ChangeTransparency(-other.gameObject.GetComponent<EnemiesGeneralBehaviour>().damage);
-                Debug.Log("Damage is: " + -other.gameObject.GetComponent<EnemiesGeneralBehaviour>().damage);
+//                Debug.Log("Damage is: " + -other.gameObject.GetComponent<EnemiesGeneralBehaviour>().damage);
                 if (player.GetComponent<GondolaMovement>().health > 0)
                 {
                     Destroy(other.gameObject);

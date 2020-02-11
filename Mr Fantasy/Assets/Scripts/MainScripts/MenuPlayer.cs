@@ -7,12 +7,12 @@ public class MenuPlayer : MonoBehaviour
 
 	void Start()
     {
-        levelManager = new LevelManager();
+        levelManager = gameObject.AddComponent<LevelManager>();
 	}
 
 	public void Play()
     {
-		StartCoroutine(levelManager.LoadAsync(0));
+		StartCoroutine(levelManager.LoadAsync(1));
 	}
 	public void Load(){
 	}

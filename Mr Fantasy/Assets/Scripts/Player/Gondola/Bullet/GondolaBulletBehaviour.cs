@@ -11,13 +11,17 @@ namespace Player.Gondola.Bullet
         private GondolaMovement player;
         private Animator anim;
         public GameObject enemy;
+        private EnemiesGeneralBehaviour enemiesGeneralBehaviour;
 
         #endregion
 
         #region Setting Properties
 
         public float speed;
+        public float damage;
+        public float defaultDamage = 1;
         private float recharge;
+        public float lossPercentage = 1.2f;
         private static readonly int Catch = Animator.StringToHash("Catch");
         private static readonly int GoBack = Animator.StringToHash("GoBack");
         private static readonly int Default = Animator.StringToHash("Default");
@@ -30,6 +34,7 @@ namespace Player.Gondola.Bullet
         public bool caught; // the enemy has been caught
         public bool hit; // the enemy has been hit
         public bool catchAnimTriggered; // the catch anim has started
+        public bool reduce = true;
         
         #endregion
 
@@ -39,6 +44,7 @@ namespace Player.Gondola.Bullet
         {
             anim = GetComponent<Animator>();
             player = GameObject.FindWithTag("Player").GetComponent<GondolaMovement>();
+            damage = (player.barrierIndex + 1) * defaultDamage;
         }
 
         private void FixedUpdate()
@@ -63,11 +69,12 @@ namespace Player.Gondola.Bullet
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.gameObject.tag.Equals("Enemy")) return;
-            other.gameObject.tag = "DeadEnemy";
             if (hit) return;
             hit = true;
             enemy = other.gameObject;
-            recharge = other.GetComponent<EnemiesGeneralBehaviour>().damage;
+            enemiesGeneralBehaviour = other.GetComponent<EnemiesGeneralBehaviour>();
+            recharge = enemiesGeneralBehaviour.damage;
+            if (enemiesGeneralBehaviour.health <= 0) other.gameObject.tag = "DeadEnemy";
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -80,16 +87,35 @@ namespace Player.Gondola.Bullet
         {
             if (!catchAnimTriggered) anim.SetTrigger(Catch);
             catchAnimTriggered = true;
-            enemy.GetComponent<EnemiesGeneralBehaviour>().Decompose(transform);
-            StartCoroutine(WaitForAnimEnd(GoBack, CatchAnimDuration));
+            if (damage >= recharge) enemiesGeneralBehaviour.health = 0;
+            enemiesGeneralBehaviour.Decompose(transform);
+            StartCoroutine(WaitForAnimEnd(CatchAnimDuration));
         }
 
         private void GoBackToPlayer()
         {
-            Destroy(enemy);
+            if (damage >= enemiesGeneralBehaviour.health)
+            {
+                Debug.Log("Destroying enemy");
+                Destroy(enemy);
+            }
+            else
+            {
+                if (reduce)
+                {
+                    enemiesGeneralBehaviour.health -= damage;
+                    Vector3 enemyLocalScale = enemy.transform.localScale;
+                    enemyLocalScale = new Vector3(enemyLocalScale.x * lossPercentage, enemyLocalScale.y  * lossPercentage, enemyLocalScale.z);
+                    enemy.transform.localScale = enemyLocalScale;
+                    Debug.Log("Reduced enemy scale");
+                    reduce = false;
+                    WaitForReductionTime(.1f);
+                }
+                
+            }
             anim.SetTrigger(GoBack);
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed / 100);
-            if (!(Mathf.Abs(transform.position.x - player.transform.position.x) < 0.05f)) return;
+            if (Mathf.Abs(transform.position.x - player.transform.position.x) > 0.15f) return;
             player.ChangeTransparency(recharge);
             anim.SetTrigger(Default);
             ResetBool();
@@ -103,10 +129,16 @@ namespace Player.Gondola.Bullet
             catchAnimTriggered = false;
         }
         
-        private IEnumerator WaitForAnimEnd(int animName, float waitTime)
+        private IEnumerator WaitForAnimEnd(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
             caught = true;
+        }
+        
+        private IEnumerator WaitForReductionTime(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+            reduce = true;
         }
 
         #endregion
