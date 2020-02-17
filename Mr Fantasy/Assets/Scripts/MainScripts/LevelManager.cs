@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelNumber);
         
-        while (!asyncLoad.isDone)
+        while (!asyncLoad.allowSceneActivation)
         {
             yield return null;
         }

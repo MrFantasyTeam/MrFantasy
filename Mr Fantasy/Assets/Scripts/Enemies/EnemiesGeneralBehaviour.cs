@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Boo.Lang;
 using Player.Gondola;
 using UnityEngine;
 
@@ -8,14 +7,16 @@ namespace Enemies
     public class EnemiesGeneralBehaviour : MonoBehaviour
     {
         #region Objects
-
+        
         public GameObject player;
+        public GondolaMovement gondolaMovement;
         public FollowPath myPath;
-        public GameObject moleculeCluster;
-        public List<Collider2D> colliders;
-        public SpriteRenderer spriteRenderer;
         public Animator anim;
-        public Transform[] moleculeClusterTransforms;
+        public ParticleSystem ps;
+        private ParticleSystem.Particle[] particles;
+        private Transform bulletPos;
+        private Transform psTransform;
+        private Collider2D physicCollider2D;
 
         #endregion
 
@@ -23,12 +24,17 @@ namespace Enemies
         
         public float damage;
         public float health;
-        private float speed;
+        public float tempHealth;
+        public float speed;
         public float defaultSpeed = 2;
         public float attackingSpeed = 8;
         public float distance;
-        private const float MoleculeSpeed = 8f;
-        private static readonly int AttackAnim = Animator.StringToHash("Attack");
+        private const float MoleculeSpeed = 4f;
+        private const float LossPercentage = .8f;
+        private int numParticleAlive;
+        protected const string PathTagName = "EnemyPath";
+        private const string PlayerTag = "Player";
+        protected static readonly int AttackAnim = Animator.StringToHash("Attack");
 
         #endregion
 
@@ -36,28 +42,44 @@ namespace Enemies
 
         public bool spottedPlayer;
         public bool facingRight;
-        public bool disabledColliderAndSprite;
-        public bool deactivateMolecule = false;
+        public bool moveParticle;
+        public bool caught;
 
         #endregion
 
         #region Default Methods
 
+        private void Awake()
+        {
+            player = GameObject.FindWithTag(PlayerTag);
+            gondolaMovement = player.GetComponent<GondolaMovement>();
+            foreach (Collider2D enemyCollider2D in GetComponents<Collider2D>())
+            {
+                if (enemyCollider2D.isTrigger) continue;
+                physicCollider2D = enemyCollider2D;
+                break;
+            }
+            
+        }
+
         protected void Start()
         {
             health = damage;
+            tempHealth = health;
             myPath = GetComponent<FollowPath>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
             anim = GetComponent<Animator>();
-            foreach (Collider2D col in GetComponents<Collider2D>())
-            {
-                colliders.Add(col);
-            }
+            ps = GetComponentInChildren<ParticleSystem>();
+            psTransform = ps.transform;
             speed = defaultSpeed;
         }
 
         protected virtual void FixedUpdate()
         {
+            if (health < tempHealth)
+            {
+                ReduceSize();
+            }
+
             if (spottedPlayer)
             {
                 myPath.enabled = false;
@@ -69,11 +91,30 @@ namespace Enemies
             }
         }
 
+        private void LateUpdate()
+        {
+            if (moveParticle) CreateParticleAndMove(bulletPos);
+        }
+
         #endregion
 
         #region Custom Methods
 
-        protected void MoveTowardsPlayer()
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            TriggerCollider(true);
+//            if (other.gameObject.CompareTag(PlayerTag))
+//            {
+//                if (!physicCollider2D.IsTouching(other.GetComponents<Collider2D>()[0])) return;
+//                TriggerCollider(true);
+//            }
+//            else
+//            {
+//                TriggerCollider(false);
+//            }
+        }
+
+        protected virtual void MoveTowardsPlayer()
         {
             if (Mathf.Abs(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude) < distance)
             {
@@ -85,21 +126,20 @@ namespace Enemies
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * 2 * Time.deltaTime);
                 if (transform.position.x > player.transform.position.x)
                 {
-                    if (!facingRight)
-                        Flip();
+                    if (!facingRight) Flip();
                 }
                 else
                 {
-                    if (facingRight)
-                        Flip();
+                    if (facingRight) Flip();
                 }
             } 
         }
 
         protected virtual void Attack()
         {
+            if (caught) return;
             speed = attackingSpeed;
-            player.GetComponent<GondolaMovement>().ChangeTransparency(-damage / 100);
+            gondolaMovement.ChangeTransparency(-damage / 100);
             anim.SetTrigger(AttackAnim);
         }
     
@@ -114,93 +154,55 @@ namespace Enemies
 
         public void Decompose(Transform bulletPosition)
         {
-//            moleculeClusterTransforms = moleculeCluster.GetComponentsInChildren<Transform>();
-            if (health <= 0)
-            {
-                
-                if (!disabledColliderAndSprite)
-                {
-                    DisableSpriteAndColliders();
-                }
-
-//                int transformINdex = 0;
-
-//                foreach (Transform molecule in moleculeClusterTransforms)
-//                {
-//                    transformINdex++;
-//                }
-//                Debug.Log("Transfrom INdex = " + transformINdex);
-                foreach (Transform molecule in moleculeClusterTransforms)
-                {
-                    molecule.position = Vector2.MoveTowards(molecule.position, bulletPosition.position,
-                        MoleculeSpeed * Time.deltaTime);
-                }
-            }
-//            else
-//            {
-//                int transformIndex = 0;
-//                
-//                foreach (Transform molecule in moleculeCluster.GetComponentInChildren<Transform>())
-//                {
-//                    molecule.gameObject.SetActive(true);
-////                    Debug.Log("Activated molecule");
-//                    transformIndex++;
-//                }
-//                
-//                Debug.Log("MOlecule cluster size step 2: " + moleculeClusterTransforms.Length);
-//                Debug.Log("Index is = " + transformIndex);
-//                Transform[] transforms = new Transform[transformIndex];
-//                transformIndex = 0;
-//                foreach (Transform molecule in moleculeCluster.GetComponentInChildren<Transform>())
-//                {
-//                    transforms[transformIndex] = molecule.transform;
-//                    transformIndex++;
-////                    Debug.Log("Saved previous position");
-//                }
-//                
-//                foreach (Transform molecule in moleculeCluster.GetComponentInChildren<Transform>())
-//                {
-//                    molecule.position = Vector2.MoveTowards(molecule.position, bulletPosition.position,
-//                        MoleculeSpeed * Time.deltaTime);
-//                    WaitForMovingTime(.01f, molecule);
-////                    Debug.Log("Moved towards player");
-//                }
-//
-////                WaitForMovingTime(.1f);
-//                transformIndex = 0;
-//
-//                
-//            }
+            bulletPos = bulletPosition;
+            moveParticle = true;
         }
 
-        private void DisableSpriteAndColliders()
+        private void CreateParticleAndMove(Transform bulletPosition)
         {
-            spriteRenderer.enabled = false;
-            if (colliders != null && health <= 0)
+            if (ps.isStopped) ps.Play();
+            particles = new ParticleSystem.Particle[ps.main.maxParticles];
+            numParticleAlive = ps.GetParticles(particles);
+            float step = MoleculeSpeed * Time.deltaTime;
+            for (int i = 0; i < numParticleAlive; i++)
             {
-                foreach (Collider2D col in colliders)
-                {
-                    col.enabled = false;
-                }  
+                particles[i].position = Vector3.SlerpUnclamped(particles[i].position, bulletPosition.position, step);
             }
-            foreach (Transform molecule in moleculeCluster.GetComponentInChildren<Transform>())
-            {
-                molecule.gameObject.SetActive(true);
-            }
+            ps.SetParticles(particles, numParticleAlive);
+            StartCoroutine(WaitForMovingTime(.5f));
+        }
 
-            if (health <= 0)
-            {
-                disabledColliderAndSprite = true;
-            }
-            
+        private void ReduceSize()
+        {
+            StartCoroutine(WaitForReductionTime(.2f));
+            Vector3 enemyLocalScale = transform.localScale;
+            enemyLocalScale = new Vector3(enemyLocalScale.x * LossPercentage, enemyLocalScale.y  * LossPercentage, 
+                enemyLocalScale.z);
+            gameObject.transform.localScale = enemyLocalScale;
+            tempHealth = health;
         }
         
-        private IEnumerator WaitForMovingTime(float waitTime, Transform molecule)
+        private IEnumerator WaitForMovingTime(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
-            molecule.gameObject.SetActive(false);
+            moveParticle = false;
+        }
+        
+        private IEnumerator WaitForReductionTime(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime); 
+            Vector3 tempLocalScale = psTransform.localScale;
+            tempLocalScale = new Vector3(tempLocalScale.x / LossPercentage, tempLocalScale.y / LossPercentage,
+                tempLocalScale.z );
+            psTransform.localScale = tempLocalScale;
         }
 
+        private void TriggerCollider(bool activate)
+        {
+            if (physicCollider2D == null) return;
+            physicCollider2D.isTrigger = activate;
+        }
+        
         #endregion
     
     }

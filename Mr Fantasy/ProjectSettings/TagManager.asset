@@ -31,6 +31,8 @@ TagManager:
   - Enemy
   - Fog
   - DeadEnemy
+  - EnemyPath
+  - LoadNext
   layers:
   - Default
   - TransparentFX
@@ -45,7 +47,7 @@ TagManager:
   - Background lv 2
   - Background lv 3
   - Nebbia
-  - 
+  - PlayerLayer
   - 
   - 
   - 

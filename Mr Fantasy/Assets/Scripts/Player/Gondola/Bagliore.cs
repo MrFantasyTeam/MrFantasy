@@ -9,7 +9,7 @@ public class Bagliore : MonoBehaviour
     private Animator anim;
     public GameObject player;
     public GondolaMovement gondolaMovement;
-    private const string IsShotingName = "IsShooting";
+    private const string IsShotingName = "Bagliore";
     private const string PlayerName = "Player";
     private bool lit;
     public bool isShooting;
@@ -24,16 +24,13 @@ public class Bagliore : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         isShooting = gondolaMovement.isShooting;
         if (isShooting)
         {
-            //Debug.Log("Entered in the stete");
-            anim.SetTrigger(IsShooting);
-            Debug.Log("Triggered anim");
-            player.GetComponent<GondolaMovement>().isShooting = false;
-            Debug.Log("Setting false");
+            anim.CrossFade(IsShotingName, 0.1f);
+            gondolaMovement.isShooting = false;
             isShooting = false;
         }
     }
