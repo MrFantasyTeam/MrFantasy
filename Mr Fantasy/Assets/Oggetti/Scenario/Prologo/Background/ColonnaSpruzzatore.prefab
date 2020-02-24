@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6000564822124072218}
   - component: {fileID: 6000564822124072217}
+  - component: {fileID: 4664339895732497561}
   - component: {fileID: 6000564822124072219}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ColonnaSpruzzatore
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,6 +81,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4664339895732497561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000564822124072216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35d718af60b6444e91c781b99540ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time1: 1.5
+  time2: 3
 --- !u!61 &6000564822124072219
 BoxCollider2D:
   m_ObjectHideFlags: 0

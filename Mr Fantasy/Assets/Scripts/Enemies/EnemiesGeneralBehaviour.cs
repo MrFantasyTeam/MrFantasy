@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Player.Gondola;
 using UnityEngine;
 
@@ -16,18 +17,19 @@ namespace Enemies
         private ParticleSystem.Particle[] particles;
         private Transform bulletPos;
         private Transform psTransform;
-        private Collider2D physicCollider2D;
-
+        private Radar radar;
         #endregion
 
         #region Settings Parameters
-        
+
+        protected Vector3 playerPosition;
         public float damage;
         public float health;
         public float tempHealth;
         public float speed;
         public float defaultSpeed = 2;
         public float attackingSpeed = 8;
+        protected float tempSpeed;
         public float distance;
         private const float MoleculeSpeed = 4f;
         private const float LossPercentage = .8f;
@@ -44,6 +46,8 @@ namespace Enemies
         public bool facingRight;
         public bool moveParticle;
         public bool caught;
+        protected bool DamagedPlayer;
+        protected bool destroyedPath;
 
         #endregion
 
@@ -53,16 +57,11 @@ namespace Enemies
         {
             player = GameObject.FindWithTag(PlayerTag);
             gondolaMovement = player.GetComponent<GondolaMovement>();
-            foreach (Collider2D enemyCollider2D in GetComponents<Collider2D>())
-            {
-                if (enemyCollider2D.isTrigger) continue;
-                physicCollider2D = enemyCollider2D;
-                break;
-            }
-            
+            radar = GetComponentInChildren<Radar>();
+            radar.player = player;
         }
 
-        protected void Start()
+        protected virtual void Start()
         {
             health = damage;
             tempHealth = health;
@@ -70,7 +69,7 @@ namespace Enemies
             anim = GetComponent<Animator>();
             ps = GetComponentInChildren<ParticleSystem>();
             psTransform = ps.transform;
-            speed = defaultSpeed;
+            speed = defaultSpeed; 
         }
 
         protected virtual void FixedUpdate()
@@ -82,11 +81,12 @@ namespace Enemies
 
             if (spottedPlayer)
             {
-                myPath.enabled = false;
+                if (!destroyedPath) myPath.enabled = false;
                 MoveTowardsPlayer();
             }
             else
             {
+                tempSpeed = 0;
                 myPath.enabled = true;
             }
         }
@@ -100,47 +100,43 @@ namespace Enemies
 
         #region Custom Methods
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            TriggerCollider(true);
-//            if (other.gameObject.CompareTag(PlayerTag))
-//            {
-//                if (!physicCollider2D.IsTouching(other.GetComponents<Collider2D>()[0])) return;
-//                TriggerCollider(true);
-//            }
-//            else
-//            {
-//                TriggerCollider(false);
-//            }
-        }
-
         protected virtual void MoveTowardsPlayer()
         {
-            if (Mathf.Abs(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude) < distance)
+            if (caught) return;
+            playerPosition = player.transform.position;
+            if (Mathf.Abs((transform.position - playerPosition).sqrMagnitude) < distance * distance)
             {
                 Attack();
             }
             else
             {
                 speed = defaultSpeed;
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * 2 * Time.deltaTime);
-                if (transform.position.x > player.transform.position.x)
-                {
-                    if (!facingRight) Flip();
-                }
-                else
-                {
-                    if (facingRight) Flip();
-                }
+                tempSpeed += speed / 20 * Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, playerPosition, Mathf.Clamp(tempSpeed, 0, speed * Time.deltaTime));
+                LookAtEnemy();
             } 
         }
 
         protected virtual void Attack()
         {
             if (caught) return;
-            speed = attackingSpeed;
-            gondolaMovement.ChangeTransparency(-damage / 100);
-            anim.SetTrigger(AttackAnim);
+            speed = 0;
+            if (DamagedPlayer) return;
+            DamagedPlayer = true;
+//            anim.SetTrigger(AttackAnim);
+            StartCoroutine(WaitForAttack(1.2f));
+        }
+
+        protected virtual void LookAtEnemy()
+        {
+            if (transform.position.x > playerPosition.x)
+            {
+                if (!facingRight) Flip();
+            }
+            else
+            {
+                if (facingRight) Flip();
+            }
         }
     
         public void Flip()
@@ -182,6 +178,14 @@ namespace Enemies
             tempHealth = health;
         }
         
+        private IEnumerator WaitForAttack(float time)
+        {
+            yield return new WaitForSeconds(time);
+            gondolaMovement.ChangeTransparency(Mathf.RoundToInt(-damage)); 
+            speed = attackingSpeed;
+            DamagedPlayer = false;
+        }
+        
         private IEnumerator WaitForMovingTime(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
@@ -196,13 +200,6 @@ namespace Enemies
                 tempLocalScale.z );
             psTransform.localScale = tempLocalScale;
         }
-
-        private void TriggerCollider(bool activate)
-        {
-            if (physicCollider2D == null) return;
-            physicCollider2D.isTrigger = activate;
-        }
-        
         #endregion
     
     }

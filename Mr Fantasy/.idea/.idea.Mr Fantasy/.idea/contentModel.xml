@@ -52,6 +52,7 @@
                 <e p="GondolaBulletBehaviour.cs" t="Include" />
               </e>
               <e p="GondolaMovement.cs" t="Include" />
+              <e p="SphereOnBoatManager.cs" t="Include" />
             </e>
             <e p="MrFantasy1" t="Include">
               <e p="MrFantasyGen.cs" t="Include" />

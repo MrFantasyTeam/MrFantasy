@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 4129603898217119575}
   - component: {fileID: 7994065067444187147}
   - component: {fileID: 3598146140331206692}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CatchSphere
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -214,12 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f86514a4d51444a9cdaf58e308aa53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
   speed: 40
-  caught: 0
-  hit: 0
-  catchAnimTriggered: 0
-  damageEnemy: 1
 --- !u!50 &7994065067444187147
 Rigidbody2D:
   serializedVersion: 4

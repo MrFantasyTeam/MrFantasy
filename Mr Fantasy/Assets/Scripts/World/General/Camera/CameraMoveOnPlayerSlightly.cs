@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MainScripts;
+using UnityEngine;
 
  namespace World.General.Camera
  {
@@ -34,12 +35,6 @@
              playerPosition = new Vector3(playerPosition.x, playerPosition.y + 5, thisPosition.z);
              thisPosition = Vector3.SmoothDamp(thisPosition, playerPosition, ref velocity, smoothTime);
              transform.position = thisPosition;
-         }
-         
-         public void Death()
-         {
-             // TODO do something to show that the player is dead
-             StartCoroutine(mainCamera.GetComponent<LevelManager>().LoadAsync(1));
          }
      }
  }

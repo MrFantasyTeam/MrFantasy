@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using MainScripts;
 using Player.Gondola;
 using UnityEngine;
 using World.General.Camera;
@@ -35,6 +36,7 @@ namespace World.Prologue.Background.Tentacoli
 
         public bool grabbed;
         public bool die;
+        private bool dead;
 
         #endregion
 
@@ -100,7 +102,10 @@ namespace World.Prologue.Background.Tentacoli
         private void Death()
         {
             // TODO do something to show that the player is dead
-            StartCoroutine(levelManager.LoadAsync(1));
+
+            if (dead) return;
+            dead = true;
+            StartCoroutine(levelManager.MenuLoadLevelAsync(1));
         }
 
         #endregion

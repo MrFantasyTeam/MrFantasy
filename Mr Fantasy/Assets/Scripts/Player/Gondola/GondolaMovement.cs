@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using MainScripts;
+using UnityEngine;
 
 /** Script to control the player's movement and behaviour in Gondola form, in the Prologue scene **/
 namespace Player.Gondola
@@ -9,9 +12,9 @@ namespace Player.Gondola
     
         public GameObject mainCamera;
         private LevelManager levelManager;
-        private SpriteRenderer sprite;
         public Transform bulletPosition;
         private Animator anim;
+        public Animator spheresOnBoatAnim;
         private Transform playerDefaultRotation;
         public GameObject[] barriers;
 
@@ -36,6 +39,7 @@ namespace Player.Gondola
         #region Boolean
 
         public bool isShooting;
+        private bool dead;
 
         #endregion
 
@@ -44,7 +48,6 @@ namespace Player.Gondola
         private void Start()
         {
             health = 100;
-            sprite = GetComponent<SpriteRenderer>();
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             levelManager = mainCamera.GetComponent<LevelManager>();
             anim = GetComponent<Animator>();
@@ -73,25 +76,30 @@ namespace Player.Gondola
             float horizontalMovement = Input.GetAxis("Horizontal");
             float verticalMovement = Input.GetAxis("Vertical");
             transform.Translate(horizontalMovement * Time.deltaTime * speed, verticalMovement * Time.deltaTime * speed, 0);
-            if (horizontalMovement.Equals( 0) && verticalMovement.Equals(0)) anim.SetBool(Moving, false);
-            else anim.SetBool(Moving, true);
+            if (horizontalMovement.Equals(0) && verticalMovement.Equals(0))
+            {
+                anim.SetBool(Moving, false);
+                spheresOnBoatAnim.SetBool(Moving, false);
+            }
+            else
+            {
+                anim.SetBool(Moving, true);
+                spheresOnBoatAnim.SetBool(Moving, true);
+            }
         }
         
         public void ChangeTransparency(float variation)
         {
             ManagePlayerAndBarrierHealth(variation);
-            Color color = sprite.color;
-            color.a += variation / 100;
-            sprite.color = new Color(color.r, color.g, color.b, color.a);
             ManageBarrier();
-            // display the increase / decrease of health
-//            gameObject.AddComponent<HealthVariationDisplayer>().ShowHealthVariation(variation, transform);
         }
 
         private void Death()
         {
             // TODO do something to show that the player is dead
-            StartCoroutine(levelManager.LoadAsync(1));
+            if (dead) return;
+            dead = true;
+            StartCoroutine(levelManager.MenuLoadLevelAsync(1));
         }
 
         private void Shoot()

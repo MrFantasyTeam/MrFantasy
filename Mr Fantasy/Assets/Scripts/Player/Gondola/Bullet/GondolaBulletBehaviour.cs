@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Enemies;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Player.Gondola.Bullet
         #region Objects
 
         private GondolaMovement player;
+        private GameObject mainCamera;
         private Animator anim;
         private GameObject enemy;
         private EnemiesGeneralBehaviour enemiesGeneralBehaviour;
@@ -20,12 +22,13 @@ namespace Player.Gondola.Bullet
         private static readonly int Catch = Animator.StringToHash("Catch");
         private static readonly int GoBack = Animator.StringToHash("GoBack");
         private static readonly int Default = Animator.StringToHash("Default");
+        private const int TransparentFXLayer = 1;
+        private const int BackgroundLv1Layer = 9;
         private const string PlayerTag = "Player";
-        private const string DeadEnemyTag = "DeadEnemy";
         private const string MainCameraTag = "MainCamera";
-        private const string EnemyTag = "Enemy";
         private const float CatchAnimDuration = .5f;
         private const float DefaultDamage = 5;
+        private float cameraHalfWidth;
         public float speed;
         private float damage;
         private float recharge;
@@ -50,10 +53,14 @@ namespace Player.Gondola.Bullet
         {
             anim = GetComponent<Animator>();
             player = GameObject.FindWithTag(PlayerTag).GetComponent<GondolaMovement>();
+            mainCamera = GameObject.FindWithTag(MainCameraTag);
+            Camera cam = mainCamera.GetComponent<Camera>();
+            cameraHalfWidth = cam.orthographicSize * cam.aspect;
         }
 
         private void FixedUpdate()
         {
+            if (CheckIfInsideCameraView()) return;
             if (!hit) Moving();
             else
             {
@@ -73,7 +80,11 @@ namespace Player.Gondola.Bullet
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.gameObject.CompareTag(EnemyTag)) return;
+            if (other.gameObject.layer == BackgroundLv1Layer)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
             if (hit) return;
             hit = true;
             enemy = other.gameObject;
@@ -83,14 +94,10 @@ namespace Player.Gondola.Bullet
             SlowDownEnemy(true);
         }
 
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if(other.gameObject.CompareTag(MainCameraTag)) gameObject.SetActive(false);
-        }
-
         private void CatchEnemy()
         {
-            if (enemiesGeneralBehaviour == null || enemiesGeneralBehaviour.gameObject.CompareTag(DeadEnemyTag)) return;
+            if (enemiesGeneralBehaviour == null 
+                || enemiesGeneralBehaviour.gameObject.layer == TransparentFXLayer) return;
             if (!catchAnimTriggered)
             {
                 anim.SetTrigger(Catch);
@@ -99,7 +106,7 @@ namespace Player.Gondola.Bullet
 
             if (damage >= enemiesGeneralBehaviour.health)
             {
-                enemiesGeneralBehaviour.gameObject.tag = DeadEnemyTag;
+                enemiesGeneralBehaviour.gameObject.layer = TransparentFXLayer;
                 enemiesGeneralBehaviour.caught = true;
                 enemiesGeneralBehaviour.health = 0;
             }
@@ -121,6 +128,12 @@ namespace Player.Gondola.Bullet
         
         #region Secondary Methods
 
+        private bool CheckIfInsideCameraView()
+        {
+            if (Mathf.Abs((transform.position.x - mainCamera.transform.position.x)) <= cameraHalfWidth) return false;
+            gameObject.SetActive(false);
+            return true;
+        }
         private void DamageEnemy()
         {
             if (enemiesGeneralBehaviour.health <= 0) Destroy(enemy);

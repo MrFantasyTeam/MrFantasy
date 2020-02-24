@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 
 /** Script to manage the menu scene. **/
-public class MenuPlayer : MonoBehaviour
+namespace MainScripts
 {
-    public LevelManager levelManager;
+	public class MenuPlayer : MonoBehaviour
+	{
+		public LevelManager levelManager;
 
-	void Start()
-    {
-        levelManager = gameObject.AddComponent<LevelManager>();
-	}
+		void Start()
+		{
+			levelManager = gameObject.AddComponent<LevelManager>();
+		}
 
-	public void Play()
-    {
-		StartCoroutine(levelManager.LoadAsync(1));
-	}
-	public void Load(){
-	}
-	public void Exit(){
+		public void Play()
+		{
+			StartCoroutine(levelManager.MenuLoadLevelAsync(1));
+		}
+		public void Load(){
+		}
+		public void Exit(){
 		
+		}
 	}
 }

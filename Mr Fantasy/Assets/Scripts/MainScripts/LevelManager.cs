@@ -3,20 +3,58 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /** Script to load scenes. **/
-public class LevelManager : MonoBehaviour
+namespace MainScripts
 {
-    public IEnumerator LoadAsync(int levelNumber)
+    public class LevelManager : MonoBehaviour
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelNumber);
-        
-        while (!asyncLoad.allowSceneActivation)
+        public bool dead;
+        public bool success;
+        public IEnumerator LoadLevelAsync(int levelNumber)
         {
             yield return null;
-        }
-    }
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(levelNumber);
+            asyncOperation.allowSceneActivation = false;
+        
+            while (!asyncOperation.isDone)
+            {
+                
+                if (success)
+                {
+                    asyncOperation.allowSceneActivation = true;
+                    Debug.Log("Set allowScene to true");
+                }
+                else
+                {
+                    Debug.Log("Not success yet");
+                }
+                    
 
-    public void LoadImmediate(int levelNumber)
-    {
-        SceneManager.LoadScene(levelNumber);
+                yield return null;
+            }
+        }
+    
+        public IEnumerator ReloadLevelAsync(int levelNumber)
+        {
+            yield return null;
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(levelNumber);
+            asyncOperation.allowSceneActivation = false;
+        
+            while (!asyncOperation.isDone)
+            {
+                if (dead)
+                    asyncOperation.allowSceneActivation = true;
+
+                yield return null;
+            }
+        }
+
+        public IEnumerator MenuLoadLevelAsync(int levelNumber)
+        {
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(levelNumber);
+            while (!asyncOperation.isDone)
+            {
+                yield return null;
+            }
+        }
     }
 }

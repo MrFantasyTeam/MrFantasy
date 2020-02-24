@@ -1,27 +1,30 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Enemies
 {
     public class Radar : MonoBehaviour
     {
         private EnemiesGeneralBehaviour parent;
+        public GameObject player;
+        private Vector3 playerPosition;
+        public float distance;
         private void Start()
         {
             parent = GetComponentInParent<EnemiesGeneralBehaviour>();
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void FixedUpdate()
         {
-            if (!other.gameObject.CompareTag("Player")) return;
-            parent.spottedPlayer = true;
-            parent.player = other.gameObject;
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (!other.gameObject.CompareTag("Player")) return;
-            parent.spottedPlayer = false;
-            parent.player = null;
+            playerPosition = player.gameObject.transform.position;
+            if (Mathf.Abs((transform.position - playerPosition).sqrMagnitude) <= distance * distance)
+            {
+                parent.spottedPlayer = true;
+            }
+            else
+            {
+                parent.spottedPlayer = false;
+            }
         }
     }
 }

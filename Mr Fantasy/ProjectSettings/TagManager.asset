@@ -33,6 +33,7 @@ TagManager:
   - DeadEnemy
   - EnemyPath
   - LoadNext
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -48,10 +49,10 @@ TagManager:
   - Background lv 3
   - Nebbia
   - PlayerLayer
+  - EnemyLayer
+  - BulletLayer
   - 
-  - 
-  - 
-  - 
+  - InteractOnlyWithPlayerLayer
   - 
   - 
   - 

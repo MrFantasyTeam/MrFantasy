@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace World.Lv1.Miscellaneous
 {
@@ -11,7 +9,7 @@ namespace World.Lv1.Miscellaneous
         public float boxColliderXSize;
         private const string PLayerTag = "Player";
         private const string EnemyTag = "Enemy";
-        private float offset = 40f;
+        private float offset = 50f;
         public bool playerReachedCollider;
 
         private void Start()
@@ -26,7 +24,7 @@ namespace World.Lv1.Miscellaneous
         private void LateUpdate()
         {
             playerPositionX = player.transform.position.x;
-            if (playerReachedCollider && Mathf.Abs(playerPositionX - transform.position.x) > boxColliderXSize + offset) 
+            if (playerReachedCollider && Mathf.Abs(playerPositionX - transform.position.x) > boxColliderXSize + offset)
                 gameObject.SetActive(false);
         }
 

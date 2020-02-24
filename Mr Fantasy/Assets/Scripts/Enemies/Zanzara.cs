@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Player.Gondola;
 using UnityEngine;
 
 namespace Enemies
@@ -8,21 +7,44 @@ namespace Enemies
     {
         #region Objects
 
-        private GondolaMovement gondolaMovement;
+        private AnimatorStateInfo animatorStateInfo;
+        public ParticleSystem particles;
 
         #endregion
 
         #region Settings Parameters
         
-        private Transform playerPosition;
+        private static readonly int AttackingTargetAnim = Animator.StringToHash("AttackTarget");
+        private static readonly int Explode = Animator.StringToHash("Explode");
+        private static readonly int Missed = Animator.StringToHash("Missed");
+        private Vector3 tempTarget;
         private Vector2 offset;
+        private float distanceToStartAttack;
+        private float explosionTime;
 
         #endregion
 
         #region Boolean values
 
         private bool attachedToPlayer;
-        private bool setOffset;
+        private bool moveToPlayer = true;
+        public bool setTarget;
+        public bool attackingTarget;
+        public bool missedTarget = true;
+        public bool explode;
+        public bool triggeredMissedAnim;
+        public bool playedExplosionAnim;
+        
+        #endregion
+
+        #region Default Methods
+
+        protected override void Start()
+        {
+            base.Start();
+            distanceToStartAttack = distance * 6f;
+            particles.Stop();
+        }
 
         #endregion
 
@@ -30,51 +52,138 @@ namespace Enemies
 
         protected override void MoveTowardsPlayer()
         {
-            if (Mathf.Abs(new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y).magnitude) < distance)
+            if (caught) return;
+            if (explode)
             {
-                Attack();
+                Explosion();
+                return;
             }
-            else if (!attachedToPlayer)
+            
+            if (!attachedToPlayer && moveToPlayer) GoToPlayer();
+
+            if (!setTarget 
+                && Mathf.Abs(new Vector2(transform.position.x - playerPosition.x, transform.position.y - playerPosition.y).sqrMagnitude) < distanceToStartAttack * distanceToStartAttack
+                && Mathf.Abs(new Vector2(transform.position.x - playerPosition.x, transform.position.y - playerPosition.y).sqrMagnitude) > distance * distance)
             {
-                speed = defaultSpeed;
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * 2 * Time.deltaTime);
-                if (transform.position.x > player.transform.position.x)
-                {
-                    if (!facingRight) Flip();
-                }
-                else
-                {
-                    if (facingRight) Flip();
-                }
-            } 
+                SetTargetToPlayerLastPosition();
+            }
+            
+            if (setTarget 
+                && Mathf.Abs(new Vector2(transform.position.x - tempTarget.x, transform.position.y - tempTarget.y).sqrMagnitude) < distanceToStartAttack * distanceToStartAttack
+                && Mathf.Abs(new Vector2(transform.position.x - tempTarget.x, transform.position.y - tempTarget.y).sqrMagnitude) > distance * distance)
+            {
+                AttackTarget();
+            }
+            else if (Mathf.Abs(new Vector2(transform.position.x - tempTarget.x, transform.position.y - tempTarget.y).sqrMagnitude) <= distance * distance)
+            {
+                MissedPlayer();
+            }
         }
         protected override void Attack()
-        {
+        { 
             if (caught) return;
-            speed = attackingSpeed;
-            playerPosition = player.transform;
-            // TODO transition to animation
-            if (!attachedToPlayer) SetEnemyParentToPLayer();
-            StartCoroutine(WaitToExplode(.5f));
+            tempSpeed = 0;
+            missedTarget = false;
+            if (!explode)
+            {
+                explode = true;
+                anim.SetTrigger(Explode);
+            }
+            if (!attachedToPlayer) SetEnemyParentToPlayer();
         }
 
         #region Secondary Methods
-
-        private void SetEnemyParentToPLayer()
+        
+        protected override void LookAtEnemy()
         {
-            gondolaMovement = player.GetComponent<GondolaMovement>();
-            Transform enemyParent = transform.parent;
-            if (enemyParent.gameObject.CompareTag(PathTagName)) Destroy(enemyParent.gameObject);
-            gameObject.transform.SetParent(playerPosition);
-            anim.enabled = true;
-            attachedToPlayer = true;
+            if (transform.position.x > playerPosition.x)
+            {
+                if (!facingRight) Flip();
+            }
+            else
+            {
+                if (facingRight) Flip();
+            }
         }
 
-        private IEnumerator WaitToExplode(float time)
+        private void GoToPlayer()
+        {
+            playerPosition = player.transform.position;
+            speed = defaultSpeed;
+            tempSpeed += speed / 15 * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, playerPosition, Mathf.Clamp(tempSpeed, 0, speed * .2f * Time.deltaTime));
+            LookAtEnemy();
+        }
+
+        private void SetTargetToPlayerLastPosition()
+        {
+            tempTarget = new Vector3(playerPosition.x, playerPosition.y, playerPosition.x);
+            setTarget = true;
+            triggeredMissedAnim = false;
+            moveToPlayer = false;
+        }
+
+        private void AttackTarget()
+        {
+            if (!attackingTarget)
+            {
+                attackingTarget = true;
+                anim.SetTrigger(AttackingTargetAnim);
+            }
+            tempSpeed += speed / 15 * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, tempTarget, 
+                Mathf.Clamp(tempSpeed, 0, speed * 1.2f * Time.deltaTime));
+            if (Mathf.Abs((transform.position - player.transform.position).sqrMagnitude) < distance * distance )
+            {
+                Attack();
+            }
+        }
+
+        private void MissedPlayer()
+        {
+            StartCoroutine(WaitToStartChasing(.3f));
+            if (!missedTarget || triggeredMissedAnim) return;
+            triggeredMissedAnim = true;
+            attackingTarget = false;
+            anim.SetTrigger(Missed);
+        }
+
+        private void SetEnemyParentToPlayer()
+        {
+            Transform enemyParent = transform.parent;
+            if (enemyParent.gameObject.CompareTag(PathTagName))
+            {
+                Destroy(enemyParent.gameObject);
+                destroyedPath = true;
+            }
+            gameObject.transform.SetParent(player.transform);
+            anim.enabled = true;
+            attachedToPlayer = true;
+            enabled = true;
+        }
+
+        private void Explosion()
+        {
+            animatorStateInfo = anim.GetCurrentAnimatorStateInfo(0);
+            if (!animatorStateInfo.IsName("Attack - Explode")) return;
+            if (animatorStateInfo.normalizedTime < .9f && animatorStateInfo.normalizedTime > .8f && !playedExplosionAnim)
+            {
+                particles.Play();
+                playedExplosionAnim = true;
+            }
+            if (!(animatorStateInfo.normalizedTime > .95f)) return;
+            gondolaMovement.ChangeTransparency(-damage * 2);
+            
+            
+            Destroy(gameObject);
+        } 
+
+        private IEnumerator WaitToStartChasing(float time)
         {
             yield return new WaitForSeconds(time);
-            gondolaMovement.ChangeTransparency(-damage);
-            Destroy(transform.gameObject);
+            moveToPlayer = true;
+            setTarget = false;
+            tempSpeed = 0;
         }
 
         #endregion

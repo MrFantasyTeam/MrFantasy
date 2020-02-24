@@ -34,22 +34,6 @@ namespace World.General.Background
         
         void Update()
         {
-//            if (previousXPosition > transform.position.x)
-//            {
-//                if (lastInactive > backgroundsCounter && backgroundsCounter > 0)
-//                {
-//                    lastInactive = backgroundsCounter - 1;
-//                }
-//            }
-
-//            if (previousXPosition < transform.position.x)
-//            {
-//                if (lastInactive < backgroundsCounter &&  backgroundsCounter < backgrounds.Length - 1)
-//                {
-//                    Debug.LogWarning("Incrementing lastInactive index");
-//                    lastInactive = backgroundsCounter + 1;
-//                }
-//            }
             if (Mathf.Abs(transform.position.x - backgrounds[backgroundsCounter].transform.position.x) < offset) return;
             if (transform.position.x > previousXPosition)
             {
@@ -98,7 +82,6 @@ namespace World.General.Background
                 lastInactive--;
             } else if (backgroundsCounter == backgrounds.Length - 1)
             {
-                Debug.Log("Should move");
                 backgrounds[lastInactive].transform.position = new Vector3(backgrounds[backgrounds.Length - 2].transform.position.x - offset,
                     backgrounds[backgrounds.Length - 2].transform.position.y, backgrounds[backgrounds.Length - 2].transform.position.z);
                 backgroundsCounter--;
