@@ -26,6 +26,7 @@ namespace Player.Gondola.Bullet
         private const int BackgroundLv1Layer = 9;
         private const string PlayerTag = "Player";
         private const string MainCameraTag = "MainCamera";
+        private const string GrabberTag = "Grabber";
         private const float CatchAnimDuration = .5f;
         private const float DefaultDamage = 5;
         private float cameraHalfWidth;
@@ -34,6 +35,7 @@ namespace Player.Gondola.Bullet
         private float recharge;
         private float enemyTempSpeed;
         private float enemyTempAttSpeed;
+        private float playerOriginalSpeed;
 
         #endregion
 
@@ -56,6 +58,7 @@ namespace Player.Gondola.Bullet
             mainCamera = GameObject.FindWithTag(MainCameraTag);
             Camera cam = mainCamera.GetComponent<Camera>();
             cameraHalfWidth = cam.orthographicSize * cam.aspect;
+            playerOriginalSpeed = player.speed;
         }
 
         private void FixedUpdate()
@@ -136,7 +139,12 @@ namespace Player.Gondola.Bullet
         }
         private void DamageEnemy()
         {
-            if (enemiesGeneralBehaviour.health <= 0) Destroy(enemy);
+            if (enemiesGeneralBehaviour.health <= 0 && !killed)
+            {
+                killed = true;
+                ResetPLayerSpeed();
+                Destroy(enemy);
+            }
             else if (damageEnemy)
             {
                 enemiesGeneralBehaviour.health -= damage;
@@ -164,7 +172,16 @@ namespace Player.Gondola.Bullet
             } 
             enemiesGeneralBehaviour.defaultSpeed = enemyTempSpeed;
             enemiesGeneralBehaviour.attackingSpeed = enemyTempAttSpeed;
-        } 
+        }
+
+        private void ResetPLayerSpeed()
+        {
+            if (!enemy.gameObject.CompareTag(GrabberTag)) return;
+            Debug.Log("Grabber tag");
+            if (enemy.transform.parent != player.transform) return;
+            player.speed = playerOriginalSpeed;
+            Debug.Log("Reset player speed");
+        }
 
         #endregion
 

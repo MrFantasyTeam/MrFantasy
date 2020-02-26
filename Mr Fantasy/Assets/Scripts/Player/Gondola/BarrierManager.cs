@@ -15,25 +15,22 @@ namespace Player.Gondola
 
         #region Settings Parameters
 
-        private const string EnemyTag = "Enemy";
+        private const int EnemyLayer = 14;
 
         #endregion
 
-        private void Start()
+        private void Awake()
         {
             gondolaMovement = player.GetComponent<GondolaMovement>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag(EnemyTag))
+            if (other.gameObject.layer != EnemyLayer) return;
+            gondolaMovement.ChangeTransparency(-other.gameObject.GetComponent<EnemiesGeneralBehaviour>().damage);
+            if (gondolaMovement.health > 0)
             {
-                player.GetComponent<GondolaMovement>().ChangeTransparency(-other.gameObject.GetComponent<EnemiesGeneralBehaviour>().damage);
-//                Debug.Log("Damage is: " + -other.gameObject.GetComponent<EnemiesGeneralBehaviour>().damage);
-                if (player.GetComponent<GondolaMovement>().health > 0)
-                {
-                    Destroy(other.gameObject);
-                }
+                Destroy(other.gameObject);
             }
         }
     }

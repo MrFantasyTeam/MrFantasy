@@ -12,7 +12,7 @@ namespace Enemies
             if (DamagedPlayer) return;
             DamagedPlayer = true;
             anim.SetTrigger(AttackAnim);
-            StartCoroutine(WaitForAttack(1.2f));
+            StartCoroutine(WaitForAttack(2f));
 
         }
 

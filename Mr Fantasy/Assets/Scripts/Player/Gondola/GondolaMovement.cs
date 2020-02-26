@@ -154,6 +154,19 @@ namespace Player.Gondola
             coolDownTimer = 0;
         }
 
+        public void SlowDown(float time, float changedSpeed)
+        {
+            float tempSpeed = speed;
+            speed = changedSpeed;
+            StartCoroutine(WaitForSlowDownTime(time, tempSpeed));
+        }
+
+        private IEnumerator WaitForSlowDownTime(float time, float previousSpeed)
+        {
+            yield return new WaitForSeconds(time);
+            speed = previousSpeed;
+        }
+
         #endregion
         
         #endregion

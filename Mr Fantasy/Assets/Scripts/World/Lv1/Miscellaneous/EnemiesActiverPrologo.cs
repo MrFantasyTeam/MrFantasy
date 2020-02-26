@@ -7,14 +7,14 @@ namespace World.Lv1.Miscellaneous
         private GameObject player;
         public float playerPositionX;
         public float boxColliderXSize;
-        private const string PLayerTag = "Player";
-        private const string EnemyTag = "Enemy";
+        private const string PlayerTag = "Player";
+        private const int EnemyLayer = 14;
         private float offset = 50f;
         public bool playerReachedCollider;
 
         private void Start()
         {
-            player = GameObject.FindWithTag(PLayerTag);
+            player = GameObject.FindWithTag(PlayerTag);
             boxColliderXSize = GetComponent<BoxCollider2D>().size.x / 2;
             playerPositionX = player.transform.position.x;
             if (Mathf.Abs(playerPositionX - transform.position.x) < boxColliderXSize + offset) 
@@ -30,9 +30,9 @@ namespace World.Lv1.Miscellaneous
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag(PLayerTag))
+            if (other.gameObject.CompareTag(PlayerTag))
                 playerReachedCollider = true;
-            if (!other.gameObject.CompareTag(EnemyTag)) return;
+            if (other.gameObject.layer != EnemyLayer) return;
             other.transform.SetParent(gameObject.transform);
         }
     }

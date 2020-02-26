@@ -31,7 +31,10 @@
               <e p="ProiettileSx.cs" t="Include" />
             </e>
             <e p="FollowPath.cs" t="Include" />
-            <e p="Grabber.cs" t="Include" />
+            <e p="Grabber" t="Include">
+              <e p="Grabber.cs" t="Include" />
+              <e p="GrabberChain.cs" t="Include" />
+            </e>
             <e p="MovementPath.cs" t="Include" />
             <e p="Radar.cs" t="Include" />
             <e p="Virus.cs" t="Include" />
