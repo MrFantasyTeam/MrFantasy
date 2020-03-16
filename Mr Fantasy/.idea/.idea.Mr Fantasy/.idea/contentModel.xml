@@ -32,11 +32,12 @@
             </e>
             <e p="FollowPath.cs" t="Include" />
             <e p="Grabber" t="Include">
-              <e p="Grabber.cs" t="Include" />
+              <e p="GrabberBehaviour.cs" t="Include" />
               <e p="GrabberChain.cs" t="Include" />
             </e>
             <e p="MovementPath.cs" t="Include" />
             <e p="Radar.cs" t="Include" />
+            <e p="Spruzzatore.cs" t="Include" />
             <e p="Virus.cs" t="Include" />
             <e p="Zanzara.cs" t="Include" />
           </e>
@@ -88,6 +89,8 @@
                 <e p="GeneratoreMobile.cs" t="Include" />
               </e>
             </e>
+            <e p="FPSDisplay.cs" t="Include" />
+            <e p="FpsManager.cs" t="Include" />
             <e p="General" t="Include">
               <e p="Background" t="Include">
                 <e p="BackgroundMover.cs" t="Include" />
@@ -96,7 +99,12 @@
                 <e p="CameraMove.cs" t="Include" />
                 <e p="CameraMoveOnPlayer.cs" t="Include" />
                 <e p="CameraMoveOnPlayerSlightly.cs" t="Include" />
+                <e p="Parallax.cs" t="Include" />
+                <e p="ParallaxB.cs" t="Include" />
                 <e p="YAxisMovementRelateToCamera.cs" t="Include" />
+              </e>
+              <e p="Death" t="Include">
+                <e p="DeathManager.cs" t="Include" />
               </e>
               <e p="HealthManager" t="Include">
                 <e p="HealthDestroyer.cs" t="Include" />
@@ -145,6 +153,7 @@
             <e p="Prologue" t="Include">
               <e p="Background" t="Include">
                 <e p="Lava" t="Include">
+                  <e p="LavaAttackManager.cs" t="Include" />
                   <e p="LavaManager.cs" t="Include" />
                 </e>
                 <e p="Rain" t="Include">

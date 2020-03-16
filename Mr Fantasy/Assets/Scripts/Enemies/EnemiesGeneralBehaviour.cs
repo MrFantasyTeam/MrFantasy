@@ -16,12 +16,14 @@ namespace Enemies
         public ParticleSystem ps;
         private ParticleSystem.Particle[] particles;
         private Transform bulletPos;
-        private Transform psTransform;
-        private Radar radar;
+        protected Transform psTransform;
         #endregion
 
         #region Settings Parameters
 
+        protected const int TransparentFXLayer = 1;
+        protected const int EnemyLayer = 14;
+        protected const int InteractWithPlayerAndEnemy = 16;
         protected Vector3 playerPosition;
         public float damage;
         public float health;
@@ -47,7 +49,7 @@ namespace Enemies
         public bool moveParticle;
         public bool caught;
         protected bool DamagedPlayer;
-        protected bool destroyedPath;
+        protected bool DestroyedPath;
 
         #endregion
 
@@ -57,8 +59,6 @@ namespace Enemies
         {
             player = GameObject.FindWithTag(PlayerTag);
             gondolaMovement = player.GetComponent<GondolaMovement>();
-            radar = GetComponentInChildren<Radar>();
-            radar.player = player;
         }
 
         protected virtual void Start()
@@ -81,7 +81,7 @@ namespace Enemies
 
             if (spottedPlayer)
             {
-                if (!destroyedPath) myPath.enabled = false;
+                if (!DestroyedPath) myPath.enabled = false;
                 MoveTowardsPlayer();
             }
             else
@@ -156,6 +156,7 @@ namespace Enemies
 
         private void CreateParticleAndMove(Transform bulletPosition)
         {
+            if (!ps.gameObject.activeInHierarchy) ps.gameObject.SetActive(true);
             if (ps.isStopped) ps.Play();
             particles = new ParticleSystem.Particle[ps.main.maxParticles];
             numParticleAlive = ps.GetParticles(particles);
@@ -168,7 +169,7 @@ namespace Enemies
             StartCoroutine(WaitForMovingTime(.5f));
         }
 
-        private void ReduceSize()
+        protected void ReduceSize()
         {
             StartCoroutine(WaitForReductionTime(.2f));
             Vector3 enemyLocalScale = transform.localScale;
@@ -181,7 +182,8 @@ namespace Enemies
         private IEnumerator WaitForAttack(float time)
         {
             yield return new WaitForSeconds(time);
-            gondolaMovement.ChangeTransparency(Mathf.RoundToInt(-damage)); 
+            gondolaMovement.PlayerTakeDamage(Mathf.RoundToInt(-damage), true);
+            gondolaMovement.barrierHealth += Mathf.RoundToInt(-damage);
             speed = attackingSpeed;
             DamagedPlayer = false;
         }
@@ -190,6 +192,7 @@ namespace Enemies
         {
             yield return new WaitForSeconds(waitTime);
             moveParticle = false;
+            ps.gameObject.SetActive(false);
         }
         
         private IEnumerator WaitForReductionTime(float waitTime)

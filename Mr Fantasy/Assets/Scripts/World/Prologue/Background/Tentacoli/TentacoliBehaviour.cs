@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using MainScripts;
 using Player.Gondola;
 using UnityEngine;
@@ -12,9 +13,9 @@ namespace World.Prologue.Background.Tentacoli
         #region Objects
 
         private Rigidbody2D player;
-        private LevelManager levelManager;
         private GameObject mainCamera;
         public GameObject tentacolo;
+        private GameObject instantiatedTentacolo;
         public GameObject tentacoliPosition;
         private GameObject gondola;
 
@@ -27,6 +28,7 @@ namespace World.Prologue.Background.Tentacoli
         public float movingSpeed;
         public float offset;
         private int num;
+        private const float Distance = -8f;
         private const string PlayerTag = "Player";
         private const string MainCameraTag = "MainCamera";
 
@@ -46,11 +48,17 @@ namespace World.Prologue.Background.Tentacoli
         {
             mainCamera = GameObject.FindWithTag(MainCameraTag);
             player = GameObject.FindGameObjectWithTag(PlayerTag).GetComponent<Rigidbody2D>();
-            levelManager = mainCamera.GetComponent<LevelManager>();
             num = 0;
             velocity = new Vector3(0, 0, transform.position.z);
-
         }
+
+        private void FixedUpdate()
+        {
+            if (player.transform.position.x - transform.position.x > Distance) return;
+            grabbed = true;
+            GrabPlayer();
+        }
+
         private void LateUpdate()
         {
             if (grabbed) return;
@@ -65,18 +73,15 @@ namespace World.Prologue.Background.Tentacoli
 
         #region Custom Method
 
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            if (!other.gameObject.CompareTag(PlayerTag)) return;
-            grabbed = true;
-            GrabPlayer();
-        }
-
         private void GrabPlayer()
         {
             gondola = player.gameObject;
-            gondola.GetComponent<GondolaMovement>().enabled = false;
-            if (num == 0) Instantiate(tentacolo, new Vector2(tentacoliPosition.transform.position.x, gondola.transform.position.y + 3), Quaternion.identity);
+            GondolaMovement playerScript = player.GetComponent<GondolaMovement>();
+            playerScript.disableCheckOnPlayerPosition = true;
+            playerScript.enabled = false;
+            if (num == 0) 
+                instantiatedTentacolo = Instantiate(tentacolo, new Vector2(tentacoliPosition.transform.position.x, 
+                    gondola.transform.position.y + 3), Quaternion.identity);
             num++;
             StartCoroutine(WaitAnim(.5f));
             mainCamera.GetComponent<CameraMoveOnPlayer>().enabled = false;
@@ -101,11 +106,11 @@ namespace World.Prologue.Background.Tentacoli
 
         private void Death()
         {
-            // TODO do something to show that the player is dead
-
-            if (dead) return;
-            dead = true;
-            StartCoroutine(levelManager.MenuLoadLevelAsync(1));
+            gondola.layer = 1;
+            gondola.tag = "Untagged";
+            gondola.GetComponent<GondolaMovement>().Death();
+            Destroy(instantiatedTentacolo);
+            enabled = false;
         }
 
         #endregion

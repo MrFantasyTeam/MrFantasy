@@ -71,7 +71,7 @@ namespace World.Lv1.Background.Platforms
 					}
 
 					started = true;
-					speed = Random.Range(5, 10);
+					speed = Random.Range(10, 15);
 					time1 = timeDelta;
 					time2 = timeDelta * 2;
 					time3 = timeDelta * 3;

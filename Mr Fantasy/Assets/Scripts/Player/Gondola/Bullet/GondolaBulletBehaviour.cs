@@ -14,6 +14,8 @@ namespace Player.Gondola.Bullet
         private Animator anim;
         private GameObject enemy;
         private EnemiesGeneralBehaviour enemiesGeneralBehaviour;
+        private ParticleSystem particleSystem;
+        private SpriteRenderer spriteRenderer;
 
         #endregion
 
@@ -22,8 +24,10 @@ namespace Player.Gondola.Bullet
         private static readonly int Catch = Animator.StringToHash("Catch");
         private static readonly int GoBack = Animator.StringToHash("GoBack");
         private static readonly int Default = Animator.StringToHash("Default");
-        private const int TransparentFXLayer = 1;
+        private const int TransparentFxLayer = 1;
         private const int BackgroundLv1Layer = 9;
+        private const int InteractOnlyWithPlayerLayer = 17;
+        private const int BulletLayer = 15;
         private const string PlayerTag = "Player";
         private const string MainCameraTag = "MainCamera";
         private const string GrabberTag = "Grabber";
@@ -46,7 +50,7 @@ namespace Player.Gondola.Bullet
         private bool catchAnimTriggered; // the catch anim has started
         private bool damageEnemy = true;
         private bool killed;
-        
+
         #endregion
 
         #region Default Methods
@@ -59,6 +63,13 @@ namespace Player.Gondola.Bullet
             Camera cam = mainCamera.GetComponent<Camera>();
             cameraHalfWidth = cam.orthographicSize * cam.aspect;
             playerOriginalSpeed = player.speed;
+            particleSystem = GetComponent<ParticleSystem>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private void Start()
+        {
+            damage = (player.barrierIndex + 1) * DefaultDamage;
         }
 
         private void FixedUpdate()
@@ -68,7 +79,7 @@ namespace Player.Gondola.Bullet
             else
             {
                 if (!caught || !catchAnimTriggered) CatchEnemy();
-                else if(caught) GoBackToPlayer();
+                else if (caught) GoBackToPlayer();
             }
         }
 
@@ -85,22 +96,32 @@ namespace Player.Gondola.Bullet
         {
             if (other.gameObject.layer == BackgroundLv1Layer)
             {
-                gameObject.SetActive(false);
+                spriteRenderer.enabled = false;
+                float tempSpeed = speed;
+                speed = 0;
+                particleSystem.Play();
+                StartCoroutine(WaitForSphereExplosion(tempSpeed));
                 return;
             }
+
             if (hit) return;
             hit = true;
             enemy = other.gameObject;
             enemiesGeneralBehaviour = other.GetComponent<EnemiesGeneralBehaviour>();
-            damage = (player.barrierIndex + 1) * DefaultDamage;
             recharge = damage;
             SlowDownEnemy(true);
         }
 
         private void CatchEnemy()
         {
-            if (enemiesGeneralBehaviour == null 
-                || enemiesGeneralBehaviour.gameObject.layer == TransparentFXLayer) return;
+            if (!enemiesGeneralBehaviour)
+            {
+                ResetBool();
+                gameObject.SetActive(false);
+                return;
+            }
+
+            if (enemiesGeneralBehaviour.gameObject.layer == TransparentFxLayer) return;
             if (!catchAnimTriggered)
             {
                 anim.SetTrigger(Catch);
@@ -109,10 +130,12 @@ namespace Player.Gondola.Bullet
 
             if (damage >= enemiesGeneralBehaviour.health)
             {
-                enemiesGeneralBehaviour.gameObject.layer = TransparentFXLayer;
                 enemiesGeneralBehaviour.caught = true;
                 enemiesGeneralBehaviour.health = 0;
+                enemiesGeneralBehaviour.gameObject.layer = TransparentFxLayer;
+                gameObject.layer = InteractOnlyWithPlayerLayer;
             }
+
             enemiesGeneralBehaviour.Decompose(transform);
             StartCoroutine(WaitForAnimEnd(CatchAnimDuration));
         }
@@ -123,43 +146,47 @@ namespace Player.Gondola.Bullet
             anim.SetTrigger(GoBack);
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed / 100);
             if (Mathf.Abs(transform.position.x - player.transform.position.x) > 0.15f) return;
-            player.ChangeTransparency(recharge);
+            player.PlayerTakeDamage(recharge, false);
             anim.SetTrigger(Default);
             ResetBool();
             gameObject.SetActive(false);
         }
-        
+
         #region Secondary Methods
 
         private bool CheckIfInsideCameraView()
         {
-            if (Mathf.Abs((transform.position.x - mainCamera.transform.position.x)) <= cameraHalfWidth) return false;
+            if (Mathf.Abs(transform.position.x - mainCamera.transform.position.x) <= cameraHalfWidth) return false;
             gameObject.SetActive(false);
             return true;
         }
+
         private void DamageEnemy()
         {
-            if (enemiesGeneralBehaviour.health <= 0 && !killed)
+            if (killed) return;
+            if (!enemiesGeneralBehaviour) return;
+            if (enemiesGeneralBehaviour.gameObject.layer == TransparentFxLayer)
             {
                 killed = true;
                 ResetPLayerSpeed();
                 Destroy(enemy);
             }
-            else if (damageEnemy)
-            {
-                enemiesGeneralBehaviour.health -= damage;
-                damageEnemy = false;
-            }
+
+            if (!damageEnemy) return;
+            enemiesGeneralBehaviour.health -= damage;
+            damageEnemy = false;
         }
-        
+
         private void ResetBool()
         {
             caught = false;
             hit = false;
             catchAnimTriggered = false;
             damageEnemy = true;
+            killed = false;
+            gameObject.layer = BulletLayer;
         }
-        
+
         private void SlowDownEnemy(bool slow)
         {
             if (slow)
@@ -169,7 +196,8 @@ namespace Player.Gondola.Bullet
                 enemiesGeneralBehaviour.defaultSpeed = 0.3f;
                 enemiesGeneralBehaviour.attackingSpeed = 0.3f;
                 return;
-            } 
+            }
+
             enemiesGeneralBehaviour.defaultSpeed = enemyTempSpeed;
             enemiesGeneralBehaviour.attackingSpeed = enemyTempAttSpeed;
         }
@@ -177,10 +205,8 @@ namespace Player.Gondola.Bullet
         private void ResetPLayerSpeed()
         {
             if (!enemy.gameObject.CompareTag(GrabberTag)) return;
-            Debug.Log("Grabber tag");
             if (enemy.transform.parent != player.transform) return;
             player.speed = playerOriginalSpeed;
-            Debug.Log("Reset player speed");
         }
 
         #endregion
@@ -192,6 +218,14 @@ namespace Player.Gondola.Bullet
             yield return new WaitForSeconds(waitTime);
             SlowDownEnemy(false);
             caught = true;
+        }
+
+        private IEnumerator WaitForSphereExplosion(float defaultSpeed)
+        {
+            yield return new WaitForSeconds(.3f);
+            gameObject.SetActive(false);
+            spriteRenderer.enabled = true;
+            speed = defaultSpeed;
         }
 
         #endregion

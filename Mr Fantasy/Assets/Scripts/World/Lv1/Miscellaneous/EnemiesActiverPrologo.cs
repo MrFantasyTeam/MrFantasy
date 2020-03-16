@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using Player.Gondola;
+using UnityEngine;
 
 namespace World.Lv1.Miscellaneous
 {
     public class EnemiesActiverPrologo : MonoBehaviour
     {
         private GameObject player;
+        private GondolaMovement playerScript;
         public float playerPositionX;
         public float boxColliderXSize;
         private const string PlayerTag = "Player";
@@ -15,6 +17,7 @@ namespace World.Lv1.Miscellaneous
         private void Start()
         {
             player = GameObject.FindWithTag(PlayerTag);
+            playerScript = player.GetComponent<GondolaMovement>();
             boxColliderXSize = GetComponent<BoxCollider2D>().size.x / 2;
             playerPositionX = player.transform.position.x;
             if (Mathf.Abs(playerPositionX - transform.position.x) < boxColliderXSize + offset) 
@@ -24,7 +27,8 @@ namespace World.Lv1.Miscellaneous
         private void LateUpdate()
         {
             playerPositionX = player.transform.position.x;
-            if (playerReachedCollider && Mathf.Abs(playerPositionX - transform.position.x) > boxColliderXSize + offset)
+            if (playerReachedCollider && Mathf.Abs(playerPositionX - transform.position.x) > boxColliderXSize + offset
+                && !playerScript.disableCheckOnPlayerPosition)
                 gameObject.SetActive(false);
         }
 

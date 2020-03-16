@@ -4,24 +4,39 @@ namespace Enemies
 {
     public class Virus : EnemiesGeneralBehaviour
     {
+        private AnimatorStateInfo animatorStateInfo;
+        private bool setAttackTrigger;
 
         protected override void Attack()
         {
             if (caught) return;
-            speed = 0;
             if (DamagedPlayer) return;
-            DamagedPlayer = true;
-            anim.SetTrigger(AttackAnim);
-            StartCoroutine(WaitForAttack(2f));
+            if (!setAttackTrigger)
+            {
+                setAttackTrigger = true;
+                speed = 0;
+                anim.SetTrigger(AttackAnim);
+                StartCoroutine(WaitForAttack(2f));
+//                gameObject.layer = InteractWithPlayerAndEnemy;
+            }
 
+            
+            animatorStateInfo = anim.GetCurrentAnimatorStateInfo(0);
+            if (!animatorStateInfo.IsName("VirusAttack")) return;
+            if (animatorStateInfo.normalizedTime < .70f) return;
+            gondolaMovement.barrierHealth += Mathf.RoundToInt(-damage);
+            if (gameObject.layer == TransparentFXLayer) return;
+            gondolaMovement.PlayerTakeDamage(Mathf.RoundToInt(-damage), true);
+            DamagedPlayer = true;
         }
 
         private IEnumerator WaitForAttack(float time)
         {
             yield return new WaitForSeconds(time);
-            gondolaMovement.ChangeTransparency(Mathf.RoundToInt(-damage)); 
             speed = attackingSpeed;
+            setAttackTrigger = false;
             DamagedPlayer = false;
+//            gameObject.layer = EnemyLayer;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace World.General.Camera
         }
 
         // LateUpdate is called after Update each frame
-        void LateUpdate()
+        void FixedUpdate()
         {
             tempTransform = transform.position;
             if (clampYAxis)

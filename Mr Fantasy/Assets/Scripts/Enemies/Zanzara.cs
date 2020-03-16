@@ -9,6 +9,7 @@ namespace Enemies
 
         private AnimatorStateInfo animatorStateInfo;
         public ParticleSystem particles;
+        private SpriteRenderer spriteRenderer;
 
         #endregion
 
@@ -43,6 +44,7 @@ namespace Enemies
         {
             base.Start();
             distanceToStartAttack = distance * 6f;
+            spriteRenderer = GetComponent<SpriteRenderer>();
             particles.Stop();
         }
 
@@ -111,7 +113,7 @@ namespace Enemies
             playerPosition = player.transform.position;
             speed = defaultSpeed;
             tempSpeed += speed / 15 * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, playerPosition, Mathf.Clamp(tempSpeed, 0, speed * .2f * Time.deltaTime));
+            transform.position = Vector2.MoveTowards(transform.position, playerPosition, Mathf.Clamp(tempSpeed, 0, speed * .7f * Time.deltaTime));
             LookAtEnemy();
         }
 
@@ -154,9 +156,10 @@ namespace Enemies
             if (enemyParent.gameObject.CompareTag(PathTagName))
             {
                 Destroy(enemyParent.gameObject);
-                destroyedPath = true;
+                DestroyedPath = true;
             }
             gameObject.transform.SetParent(player.transform);
+            spriteRenderer.sortingOrder = 7;
             anim.enabled = true;
             attachedToPlayer = true;
             enabled = true;
@@ -172,9 +175,10 @@ namespace Enemies
                 playedExplosionAnim = true;
             }
             if (!(animatorStateInfo.normalizedTime > .95f)) return;
-            gondolaMovement.ChangeTransparency(-damage * 2);
-            
-            
+            gondolaMovement.barrierHealth += Mathf.RoundToInt(-damage * 2);
+            if (gameObject.layer == TransparentFXLayer) return;
+            gondolaMovement.PlayerTakeDamage(-damage * 2, true);
+
             Destroy(gameObject);
         } 
 

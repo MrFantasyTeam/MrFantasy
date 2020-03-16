@@ -188,9 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de5d3ec14aab994d950b6e9cb1d278f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platform: {fileID: 1521019571860608, guid: 5dcd8973cdd5b5c45afee06404b67769, type: 3}
   Time0: 0
   Time1: 5
-  platform: {fileID: 1521019571860608, guid: 5dcd8973cdd5b5c45afee06404b67769, type: 3}
   num: 0
 --- !u!4 &16109633
 Transform:
@@ -2106,9 +2106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de5d3ec14aab994d950b6e9cb1d278f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platform: {fileID: 1310469566914308, guid: 731673bc1b88e894da7c0a997565cdc7, type: 3}
   Time0: 0
   Time1: 5
-  platform: {fileID: 1310469566914308, guid: 731673bc1b88e894da7c0a997565cdc7, type: 3}
   num: 0
 --- !u!4 &325719854
 Transform:
@@ -2531,9 +2531,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de5d3ec14aab994d950b6e9cb1d278f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platform: {fileID: 1992404355464336, guid: 3355d4817c629fd489dd4149eaafa6b1, type: 3}
   Time0: 0
   Time1: 5
-  platform: {fileID: 1992404355464336, guid: 3355d4817c629fd489dd4149eaafa6b1, type: 3}
   num: 0
 --- !u!4 &362963785
 Transform:
@@ -3023,9 +3023,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de5d3ec14aab994d950b6e9cb1d278f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platform: {fileID: 1992404355464336, guid: 709fbf26e04183c4f89c7867816df946, type: 3}
   Time0: 0
   Time1: 5
-  platform: {fileID: 1992404355464336, guid: 709fbf26e04183c4f89c7867816df946, type: 3}
   num: 0
 --- !u!4 &529832086
 Transform:
@@ -5347,9 +5347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de5d3ec14aab994d950b6e9cb1d278f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platform: {fileID: 1992404355464336, guid: 3355d4817c629fd489dd4149eaafa6b1, type: 3}
   Time0: 0
   Time1: 6
-  platform: {fileID: 1992404355464336, guid: 3355d4817c629fd489dd4149eaafa6b1, type: 3}
   num: 0
 --- !u!4 &1013735050
 Transform:
@@ -6963,14 +6963,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58397ae721b1374fbd8a1bb8dc19c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraController: {fileID: 1713660845}
-  camera2Controller: {fileID: 715756291}
+  firstCameraController: {fileID: 0}
+  secondCameraController: {fileID: 0}
   cameraMove: {fileID: 0}
   player: {fileID: 0}
-  levelManager: {fileID: 0}
-  playerMovement: {fileID: 0}
-  testObject: {fileID: 0}
-  playerPosition: {fileID: 0}
   transformationAnim: {fileID: 2083172896}
   animTransformationPosition: {fileID: 604947961}
   showScenePositionIncrease: {fileID: 774779480}
@@ -6979,6 +6975,10 @@ MonoBehaviour:
   background: {fileID: 2019924389}
   chamber: {fileID: 1526496969}
   mrFantasyPesce: {fileID: 207838393}
+  levelManager: {fileID: 0}
+  playerMovement: {fileID: 0}
+  testObject: {fileID: 0}
+  playerPosition: {fileID: 0}
   reachVector: {x: 0, y: 0}
   speed: 3
   timer: 0
@@ -6994,7 +6994,6 @@ MonoBehaviour:
   x: 0
   y: 0
   z: 0
-  go: 0
   cameraOriginalSize: 0
   decreasing: 0
   increasing: 0
@@ -7005,7 +7004,8 @@ MonoBehaviour:
   focus: 0
   switchCamera: 0
   keepZooming: 0
-  velocitySetted: 0
+  velocitySet: 0
+  go: 0
 --- !u!4 &1221432370
 Transform:
   m_ObjectHideFlags: 0
@@ -7262,10 +7262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35d718af60b6444e91c781b99540ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time0: 2
-  Time1: 2
-  Time2: 4
-  speed: 1
+  time1: 0
+  time2: 0
 --- !u!212 &1248646257
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7448,10 +7446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35d718af60b6444e91c781b99540ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time0: 2
-  Time1: 2
-  Time2: 4
-  speed: 1
+  time1: 0
+  time2: 0
 --- !u!212 &1298435947
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8698,6 +8694,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2c5de2d54f6054ebbe8f738bd50654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progress: 0.89
+  dead: 0
+  success: 0
 --- !u!4 &1431060299
 Transform:
   m_ObjectHideFlags: 0
@@ -8891,9 +8890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de5d3ec14aab994d950b6e9cb1d278f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platform: {fileID: 1992404355464336, guid: 709fbf26e04183c4f89c7867816df946, type: 3}
   Time0: 0
   Time1: 5
-  platform: {fileID: 1992404355464336, guid: 709fbf26e04183c4f89c7867816df946, type: 3}
   num: 0
 --- !u!4 &1457442219
 Transform:
@@ -9146,10 +9145,10 @@ MonoBehaviour:
   - {fileID: 1346834595}
   - {fileID: 327793828}
   - {fileID: 192350093}
-  notStarted: 1
   timer: 0
   startTime: 3
   randomNumber: 0
+  notStarted: 1
   pooling: 0
 --- !u!61 &1485180018
 BoxCollider2D:
@@ -11194,10 +11193,10 @@ MonoBehaviour:
   start: 1
   cameraup: 0
   cameradown: 0
-  playerDead: 1
+  playerDead: 0
   reset: 0
-  firstcheckpoint: 1
-  respawnPoint: {x: 560, y: 15, z: -10}
+  firstcheckpoint: 0
+  respawnPoint: {x: 7, y: 5, z: -10}
 --- !u!50 &1713660849
 Rigidbody2D:
   serializedVersion: 4
@@ -13160,14 +13159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58397ae721b1374fbd8a1bb8dc19c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraController: {fileID: 1713660845}
-  camera2Controller: {fileID: 0}
+  firstCameraController: {fileID: 0}
+  secondCameraController: {fileID: 0}
   cameraMove: {fileID: 0}
   player: {fileID: 0}
-  levelManager: {fileID: 0}
-  playerMovement: {fileID: 0}
-  testObject: {fileID: 0}
-  playerPosition: {fileID: 0}
   transformationAnim: {fileID: 0}
   animTransformationPosition: {fileID: 0}
   showScenePositionIncrease: {fileID: 0}
@@ -13176,6 +13171,10 @@ MonoBehaviour:
   background: {fileID: 0}
   chamber: {fileID: 0}
   mrFantasyPesce: {fileID: 0}
+  levelManager: {fileID: 0}
+  playerMovement: {fileID: 0}
+  testObject: {fileID: 0}
+  playerPosition: {fileID: 0}
   reachVector: {x: 0, y: 0}
   speed: 10
   timer: 0
@@ -13191,7 +13190,6 @@ MonoBehaviour:
   x: 0
   y: 0
   z: 0
-  go: 0
   cameraOriginalSize: 0
   decreasing: 0
   increasing: 0
@@ -13202,7 +13200,8 @@ MonoBehaviour:
   focus: 0
   switchCamera: 0
   keepZooming: 0
-  velocitySetted: 0
+  velocitySet: 0
+  go: 0
 --- !u!4 &1989308190
 Transform:
   m_ObjectHideFlags: 0
@@ -13884,9 +13883,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de5d3ec14aab994d950b6e9cb1d278f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platform: {fileID: 1310469566914308, guid: 731673bc1b88e894da7c0a997565cdc7, type: 3}
   Time0: 0
   Time1: 5
-  platform: {fileID: 1310469566914308, guid: 731673bc1b88e894da7c0a997565cdc7, type: 3}
   num: 0
 --- !u!4 &2070999821
 Transform:

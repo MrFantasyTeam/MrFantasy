@@ -6,7 +6,6 @@ namespace Enemies
     public class Radar : MonoBehaviour
     {
         private EnemiesGeneralBehaviour parent;
-        public GameObject player;
         private Vector3 playerPosition;
         public float distance;
         private void Start()
@@ -16,15 +15,8 @@ namespace Enemies
 
         private void FixedUpdate()
         {
-            playerPosition = player.gameObject.transform.position;
-            if (Mathf.Abs((transform.position - playerPosition).sqrMagnitude) <= distance * distance)
-            {
-                parent.spottedPlayer = true;
-            }
-            else
-            {
-                parent.spottedPlayer = false;
-            }
+            playerPosition = parent.player.transform.position;
+            parent.spottedPlayer = Mathf.Abs((transform.position - playerPosition).sqrMagnitude) <= distance * distance;
         }
     }
 }

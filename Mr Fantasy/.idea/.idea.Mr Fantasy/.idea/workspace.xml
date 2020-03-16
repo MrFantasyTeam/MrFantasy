@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af90fe4f-6128-4e45-9ead-8e9851c3692c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mr Fantasy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Prologo/Grabber/Grabber_Path.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Oggetti/Nemici/Prologo/Grabber/Grabber_Path.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scene/Prologue.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/Prologue.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Grabber.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Grabber.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Virus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Virus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/BarrierManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/BarrierManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/EnemiesActiverPrologo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/EnemiesActiverPrologo.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,18 +41,25 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scene/Prologue.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Particle Attractor by Moonflower Carnivore/Scripts/particleAttractorSelf.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/FPSDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Particle Attractor by Moonflower Carnivore/Scripts/particleAttractorSpherical.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainScripts/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8D2DEAE-EB3A-4471-B3E2-24C2A136823A/cc/994e45d4/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainScripts/MenuPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Particle Attractor by Moonflower Carnivore/Scripts/rotation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Oggetti/Nemici/Prologo/Grabber/Grabber_Path.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Grabber/GrabberBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Virus.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Death/DeathManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/YAxisMovementRelateToCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Grabber/GrabberChain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Scene/TerrainController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Lava/LavaAttackManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/FpsManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Creatures/MoleculeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Platforms/PlatformVerticalMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Spruzzatore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Platforms/PlatformMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Masking.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Gondola/SphereOnBoatManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -77,9 +74,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/HealthVariationDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/MoleculePooler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/Parallax.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/ObjectPooler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Zanzara.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Background/BackgroundMover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/General/Camera/ParallaxB.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8D2DEAE-EB3A-4471-B3E2-24C2A136823A/03/b11f7464/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/EnemiesActiverPrologo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8D2DEAE-EB3A-4471-B3E2-24C2A136823A/51/98d4d95d/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
@@ -89,7 +88,6 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/BulletPooler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/MoleculePooler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Creatures/MoleculeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasyPesce/MrFantasyPesceMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/HealthManager/1HealthDestroyer.cs" />
@@ -102,31 +100,42 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Background/FogController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Fog/FogController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Fog/YAxisMovementRelateToCamera.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Lava/LavaManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bagliore.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/PerfromanceControllerPrologo.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/PerformanceControllerPrologo.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Object Pooler/ObjectPooler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainScripts/MenuPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainScripts/LevelManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerControlDisable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayerSlightly.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Grabber.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Background/BackgroundMover.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Tentacoli/TentacoliBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Platforms/PlatformVerticalMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/SphereOnBoatManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Zanzara.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Grabber/GrabberChain.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/BarrierManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Radar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Grabber/GrabberBeahviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Lv1/Miscellaneous/EnemiesActiverPrologo.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainScripts/LevelManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Death/DeathManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/CameraStayOnPlace.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Grabber/GrabberChain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Creatures/MoleculeController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/MrFantasy1/PlayerControlDisable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Zanzara.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Grabber/GrabberBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Tentacoli/TentacoliBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Lava/LavaManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/Bullet/GondolaBulletBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Spruzzatore.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/CameraMoveOnPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/ParallaxB.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/General/Camera/Parallax.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemiesGeneralBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Virus.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/GondolaMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/Lv1/Background/Platforms/PlatformVerticalMove.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Gondola/BarrierManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/FPSDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Rain/RainManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/FpsManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/World/Prologue/Background/Lava/LavaAttackManager.cs" />
       </list>
     </option>
   </component>
@@ -226,7 +235,20 @@
       <workItem from="1582227908630" duration="3493000" />
       <workItem from="1582308077034" duration="51805000" />
       <workItem from="1582545050063" duration="12214000" />
-      <workItem from="1582647962227" duration="13459000" />
+      <workItem from="1582647962227" duration="14150000" />
+      <workItem from="1582722812596" duration="37640000" />
+      <workItem from="1582909222787" duration="40784000" />
+      <workItem from="1583234647105" duration="11529000" />
+      <workItem from="1583410054127" duration="736000" />
+      <workItem from="1583412026060" duration="1258000" />
+      <workItem from="1583782590753" duration="5543000" />
+      <workItem from="1583853384612" duration="16876000" />
+      <workItem from="1583950439481" duration="13210000" />
+      <workItem from="1584200655965" duration="9867000" />
+      <workItem from="1584215570809" duration="854000" />
+      <workItem from="1584297482063" duration="5249000" />
+      <workItem from="1584358155801" duration="1771000" />
+      <workItem from="1584395522915" duration="2103000" />
     </task>
     <servers />
   </component>

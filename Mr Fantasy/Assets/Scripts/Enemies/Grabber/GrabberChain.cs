@@ -1,94 +1,130 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Timers;
-using Enemies;
-using Player.Gondola;
+﻿using Player.Gondola;
 using UnityEngine;
 
-public class GrabberChain : MonoBehaviour
+namespace Enemies.Grabber
 {
-    public Transform target;
-    private Transform parent;
-    private Vector3 parentOldPosition;
-    private Vector3 tempPosition;
-    public Rigidbody2D rb;
-    private Vector3 startingPosition;
-    public float horizontalForce;
-    public float timer;
-    private bool firstTime = true;
-    private float distance = .5f;
-    private float gondolaSpeed;
-    private float resetTime = 2f;
-    private bool setStartPos;
-    private bool parentSet;
-
-    private void Start()
+    public class GrabberChain : MonoBehaviour
     {
-        startingPosition = transform.localPosition;
-        parent = GetComponent<Transform>().parent;
-        target = parent.GetComponent<EnemiesGeneralBehaviour>().player.transform;
-    }
+        #region Objects
 
-    private void FixedUpdate()
-    {
-        timer += Time.deltaTime;
-        if (timer > resetTime && parentSet)
+        public Transform target;
+        private Transform parent;
+        private GrabberBehaviour grabberBehaviour;
+        public Rigidbody2D rb;
+        private SpriteRenderer spriteRenderer;
+        private GondolaMovement gondolaMovement;
+
+        #endregion
+        
+        #region Settings Parameters
+
+        private const float ActDistance = 3f;
+        private const float SearchingDistance = 25f;
+        private const float Speed = 40f;
+        private float resetTime;
+        private Vector3 startingPosition;
+        private Vector3 parentOldPosition;
+        public float horizontalForce;
+        public float timer;
+        private float angularVelocity;
+        private float distanceFromHead;
+        private int defaultSortingOrder;
+        #endregion
+
+        #region Boolean Values
+
+        private bool setStartPos;
+        private bool parentSet;
+
+        #endregion
+
+        #region Default Methods
+
+        private void Start()
+        {
+            parent = GetComponent<Transform>().parent;
+            grabberBehaviour = parent.GetComponent<GrabberBehaviour>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            defaultSortingOrder = spriteRenderer.sortingOrder;
+            target = grabberBehaviour.player.transform;
+            gondolaMovement = target.GetComponent<GondolaMovement>();
+            resetTime = parent.gameObject.GetComponent<GrabberBehaviour>().attackInterval;
+            distanceFromHead = Mathf.Abs((transform.position - transform.parent.position).sqrMagnitude);
+        }
+        
+        private void FixedUpdate()
+        {
+            timer += Time.deltaTime;
+
+            if (parentSet)
+            {
+                transform.position = target.position;
+                if (timer <= resetTime) return;
+                DetachFromPlayer();
+            }
+
+            if (!setStartPos)
+            {
+                if (timer <= 1f) return;
+                setStartPos = true;
+                return;
+            }
+            
+            if (Mathf.Abs((target.position - transform.position).sqrMagnitude) < ActDistance * ActDistance 
+                && !parentSet && timer > 2f)
+            {
+                AttachToPlayer();
+                return;
+            }
+
+            if (Mathf.Abs((transform.position - transform.parent.position).sqrMagnitude) >= distanceFromHead - 1) return;
+            if (Mathf.Abs((target.position - transform.position).sqrMagnitude) < SearchingDistance * SearchingDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position, Speed * Time.deltaTime);
+                return;
+            } 
+            
+            angularVelocity = rb.angularVelocity;
+            if (angularVelocity < .01f && angularVelocity > -.01f)
+            {
+                AddForce();
+            }
+        }
+
+        #endregion
+
+        #region Custom Methods
+
+        private void AttachToPlayer()
+        {
+            parent.SetParent(target);
+            gondolaMovement.SlowDown(resetTime, 5f);
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            spriteRenderer.sortingOrder = gondolaMovement.spriteRenderer.sortingOrder + 1;
+            grabberBehaviour.attached = true;
+            timer = 0;
+            parentSet = true;
+        }
+
+        private void DetachFromPlayer()
         {
             parent.SetParent(null);
-            parent.GetComponent<EnemiesGeneralBehaviour>().enabled = true;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            grabberBehaviour.attached = false;
+            spriteRenderer.sortingOrder = defaultSortingOrder;
             parentSet = false;
             timer = 0;
         }
-        if (parentSet)
-        {
-            transform.localPosition = tempPosition;
-            return;
-        }
-        float angularVelocity = rb.angularVelocity;
         
-        if (!setStartPos && timer > 1f)
+        private void AddForce()
         {
-            setStartPos = true;
-            startingPosition = transform.localPosition;
+            if (angularVelocity >= 0) rb.AddForce(Vector2.right * horizontalForce);
+            else rb.AddForce(-1 * horizontalForce * Vector2.right);
+            timer = 0;
         }
 
-        if (!setStartPos) return;
-        if (Mathf.Abs((target.position - transform.position).sqrMagnitude) < 3f * 3f && !parentSet && timer > 2f)
-        {
-            tempPosition = transform.localPosition;
-            Debug.Log("Get temp position");
-            GondolaMovement gondolaMovement = target.GetComponent<GondolaMovement>();
-            gondolaSpeed = gondolaMovement.speed;
-            gondolaMovement.SlowDown(resetTime, 10f);
-            gondolaMovement.speed = 10;
-            Debug.Log("Set gondola speed");
-            parent.SetParent(target);
-            Debug.Log("Set parent");
-            timer = 0;
-            parentSet = true;
-            Debug.Log("Blocked player" );
-        }
-        if (Mathf.Abs((target.position - transform.position).sqrMagnitude) < 30f * 30f)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, 2f);
-            return;
-        } 
-        
-        if (angularVelocity < .01f && angularVelocity > -.01f && Input.GetKey(KeyCode.K))
-        {
-            if (angularVelocity >= 0)
-            {
-                rb.AddForce(Vector2.right * horizontalForce);
-            }
-            else
-            {
-                rb.AddForce(-1 * horizontalForce * Vector2.right);
-            }
-            timer = 0;
-            Debug.Log("Added force");
-        }
-        
+        #endregion
 
+        
     }
 }

@@ -4937,7 +4937,7 @@ MonoBehaviour:
   speed: 0
   defaultSpeed: 13
   attackingSpeed: 1
-  distance: 7
+  distance: 12
   spottedPlayer: 0
   facingRight: 0
   moveParticle: 0
@@ -5039,7 +5039,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4de3e4c34b0c74b8ceb52faa389203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   distance: 28
 --- !u!1 &6322190727697378656
 GameObject:
